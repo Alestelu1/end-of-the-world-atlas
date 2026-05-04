@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { DestinationCard } from "@/components/destination-card";
 import { SceneMap } from "@/components/scene-map";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Compass, Mountain, Anchor, Snowflake } from "lucide-react";
+import { ArrowRight, Compass, Mountain, Anchor, Snowflake, Lock, KeyRound, Ship, Map as MapIcon } from "lucide-react";
 import hero from "@/assets/hero-patagonia.jpg";
 import torres from "@/assets/torres-paine.jpg";
 import tdf from "@/assets/tierra-fuego.jpg";
