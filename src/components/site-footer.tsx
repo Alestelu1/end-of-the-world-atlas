@@ -35,7 +35,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 py-5 flex flex-col md:flex-row items-center justify-between text-[11px] text-muted-foreground font-mono uppercase tracking-coord gap-2">
           <div>© {new Date().getFullYear()} End of the World Atlas</div>
-          <div>Cartographic project · Stockholm / Ushuaia</div>
+          <div>Cartographic Project — Puerto Williams / Cape Horn / Chilean Antarctica</div>
         </div>
       </div>
     </footer>
