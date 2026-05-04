@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "End of the world atlas" },
+      { name: "description", content: "An interactive atlas for exploring Patagonia, Tierra del Fuego, Cape Horn, and Chilean Antarctica." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "End of the world atlas" },
+      { property: "og:description", content: "An interactive atlas for exploring Patagonia, Tierra del Fuego, Cape Horn, and Chilean Antarctica." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "End of the world atlas" },
+      { name: "twitter:description", content: "An interactive atlas for exploring Patagonia, Tierra del Fuego, Cape Horn, and Chilean Antarctica." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/X3qWO2Diw7ReTSRr8dC2xbJoyvw1/social-images/social-1777928902253-1.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/X3qWO2Diw7ReTSRr8dC2xbJoyvw1/social-images/social-1777928902253-1.webp" },
     ],
     links: [
       {
