@@ -51,8 +51,9 @@ function Home() {
             <em className="text-glacier not-italic font-light italic">end</em>, the world begins.
           </h1>
           <p className="reveal-slow mt-8 max-w-xl text-base md:text-lg text-silver/80 leading-relaxed">
-            A cinematic atlas of the southernmost lands on Earth — glaciers, lighthouses
-            and the wind that has no name.
+            From Puerto Williams — the southernmost city on Earth — across Navarino Island,
+            the Cape Horn archipelago and the Chilean Antarctic projection. Mapping the austral
+            frontier through geography, navigation and southern memory.
           </p>
 
           <div className="reveal-slow mt-10 flex flex-wrap gap-4">
