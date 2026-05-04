@@ -48,7 +48,7 @@ const routes = [
     distance: "1,800 nm",
     elev: "—",
     price: "$ 48",
-    desc: "Ushuaia → South Shetland → Antarctic Peninsula. Zodiac landings, glaciologist briefings.",
+    desc: "Punta Arenas → Puerto Williams → South Shetland → Antarctic Peninsula. Zodiac landings, glaciologist briefings.",
   },
 ];
 
