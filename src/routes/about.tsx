@@ -27,15 +27,17 @@ function AboutPage() {
         </div>
         <div className="lg:col-span-7 space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            End of the World Atlas is an independent visual project documenting the southernmost
-            geographies of the Americas — from the Patagonian steppe to the Chilean Antarctic Territory.
+            End of the World Atlas is an independent cartographic project rooted in Puerto Williams,
+            on Navarino Island — the southernmost city on Earth and the operational gateway to the
+            Cape Horn archipelago and the Chilean Antarctic projection.
           </p>
           <p>
-            We work with sailors, lighthouse keepers, glaciologists and indigenous Yagan communities
-            to translate a remote, hard-to-reach geography into a cinematic atlas anyone can navigate.
+            We work alongside Chilean naval pilots, lighthouse keepers of the southern sentinel
+            network, glaciologists and Yagán communities to translate a remote austral geography
+            into a cinematic atlas anyone can navigate.
           </p>
           <p className="text-glacier italic font-display text-2xl">
-            "Maps don't end at the southern coast. They begin there."
+            "Mapping the Chilean austral frontier through geography, navigation and southern memory."
           </p>
         </div>
       </section>

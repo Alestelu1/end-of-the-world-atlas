@@ -7,8 +7,8 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <div className="font-display text-2xl text-ice">End of the World Atlas</div>
           <p className="mt-3 text-sm text-muted-foreground max-w-md leading-relaxed">
-            A visual cartography of Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica —
-            the last frontier of the inhabited world.
+            Mapping the Chilean austral frontier through geography, navigation and southern memory —
+            from Puerto Williams to the Cape Horn archipelago and the Chilean Antarctic projection.
           </p>
           <div className="mt-6 font-mono text-[10px] tracking-coord text-muted-foreground uppercase">
             54°48′S · 68°18′W
@@ -35,7 +35,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 py-5 flex flex-col md:flex-row items-center justify-between text-[11px] text-muted-foreground font-mono uppercase tracking-coord gap-2">
           <div>© {new Date().getFullYear()} End of the World Atlas</div>
-          <div>Cartographic project · Stockholm / Ushuaia</div>
+          <div>Cartographic Project — Puerto Williams / Cape Horn / Chilean Antarctica</div>
         </div>
       </div>
     </footer>
