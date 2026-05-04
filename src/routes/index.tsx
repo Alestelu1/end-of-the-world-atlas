@@ -298,7 +298,7 @@ function Home() {
             </Link>
           </div>
           <div className="mt-10 font-mono text-[10px] tracking-coord text-muted-foreground uppercase">
-            Departures · Punta Arenas · Puerto Williams · Ushuaia
+            Departures · Punta Arenas · Puerto Williams · Cabo de Hornos
           </div>
         </div>
       </section>
