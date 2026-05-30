@@ -8,9 +8,13 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — End of the World Atlas" },
-      { name: "description", content: "An independent cartographic project documenting the southernmost geographies on Earth, between Patagonia, Cape Horn and Chilean Antarctica." },
+      { name: "description", content: "An independent cartographic project documenting the southernmost geographies on Earth, between Chilean Patagonia, Cape Horn and Chilean Antarctica." },
       { property: "og:title", content: "About — End of the World Atlas" },
-      { property: "og:description", content: "An independent cartographic project on the southern frontier." },
+      { property: "og:description", content: "An independent cartographic project on the Chilean austral frontier." },
+      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/about" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/about" },
     ],
   }),
   component: AboutPage,
@@ -23,7 +27,7 @@ function AboutPage() {
 
       <section className="pt-40 pb-16 max-w-[1600px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5">
-          <SectionHeading eyebrow="About" title="A cartography written in salt and ice." />
+          <SectionHeading eyebrow="About" title="A cartography written in salt and ice." as="h1" />
         </div>
         <div className="lg:col-span-7 space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>

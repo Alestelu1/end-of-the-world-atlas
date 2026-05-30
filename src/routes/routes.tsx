@@ -11,9 +11,27 @@ export const Route = createFileRoute("/routes")({
   head: () => ({
     meta: [
       { title: "Expedition Routes — End of the World Atlas" },
-      { name: "description", content: "Premium guided routes across Patagonia, Cape Horn and the Antarctic Peninsula. Multi-day itineraries with maps and field notes." },
-      { property: "og:title", content: "Expedition Routes" },
-      { property: "og:description", content: "Premium itineraries across the southern frontier." },
+      { name: "description", content: "Premium guided routes across Chilean Patagonia, Cape Horn and the Antarctic Peninsula — multi-day itineraries with maps, GPX tracks and field notes." },
+      { property: "og:title", content: "Expedition Routes — End of the World Atlas" },
+      { property: "og:description", content: "Premium itineraries across the Chilean austral frontier." },
+      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/routes" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/routes" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            { "@type": "Product", name: "Paine Circuit", description: "9-day complete loop around the Paine massif.", offers: { "@type": "Offer", price: "24", priceCurrency: "USD" } },
+            { "@type": "Product", name: "Beagle to Cape Horn", description: "6-day sailing route through the Beagle Channel to Cape Horn.", offers: { "@type": "Offer", price: "32", priceCurrency: "USD" } },
+            { "@type": "Product", name: "Antarctic Crossing", description: "12-day expedition from Punta Arenas to the Antarctic Peninsula.", offers: { "@type": "Offer", price: "48", priceCurrency: "USD" } },
+          ].map((p, i) => ({ "@type": "ListItem", position: i + 1, item: p })),
+        }),
+      },
     ],
   }),
   component: RoutesPage,
@@ -57,7 +75,7 @@ function RoutesPage() {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <section className="pt-40 pb-16 max-w-[1600px] mx-auto px-6 lg:px-12">
-        <SectionHeading eyebrow="Expedition Routes" title="Itineraries drawn at the edge of the world" description="Each route is a downloadable premium guide — GPX tracks, lighthouse waypoints, weather windows, lodging." />
+        <SectionHeading as="h1" eyebrow="Expedition Routes" title="Itineraries drawn at the edge of the world" description="Each route is a downloadable premium guide — GPX tracks, lighthouse waypoints, weather windows, lodging." />
       </section>
 
       <section className="pb-32 max-w-[1600px] mx-auto px-6 lg:px-12 space-y-6">

@@ -14,9 +14,13 @@ export const Route = createFileRoute("/atlas")({
   head: () => ({
     meta: [
       { title: "Atlas — Patagonia, Tierra del Fuego, Cape Horn & Antarctica" },
-      { name: "description", content: "Explore the southernmost regions of the world through cinematic destination cards and an interactive cartographic map." },
+      { name: "description", content: "Explore the southernmost regions of the world through cinematic destination cards and an interactive cartographic map of the Chilean south." },
       { property: "og:title", content: "The Atlas — End of the World" },
-      { property: "og:description", content: "Six regions, one frontier. The cinematic atlas of the south." },
+      { property: "og:description", content: "Six regions, one frontier. The cinematic atlas of the Chilean south." },
+      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/atlas" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/atlas" },
     ],
   }),
   component: AtlasPage,
@@ -27,7 +31,7 @@ function AtlasPage() {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <section className="pt-40 pb-20 max-w-[1600px] mx-auto px-6 lg:px-12">
-        <SectionHeading eyebrow="The Atlas" title="A cartography of the last frontier" description="Six regions documented through coordinates, geology and image." />
+        <SectionHeading as="h1" eyebrow="The Atlas" title="A cartography of the last frontier" description="Six regions documented through coordinates, geology and image." />
       </section>
       <section className="pb-24 max-w-[1600px] mx-auto px-6 lg:px-12">
         <SceneMap />
