@@ -10,9 +10,38 @@ export const Route = createFileRoute("/lighthouses")({
   head: () => ({
     meta: [
       { title: "Lighthouses — Sentinels of the Drake Passage" },
-      { name: "description", content: "An archive of the southernmost lighthouses on Earth — Cape Horn, Les Éclaireurs, Evangelistas and the keepers who tend them." },
-      { property: "og:title", content: "Lighthouse Explorer" },
-      { property: "og:description", content: "Sentinels of the southern oceans." },
+      { name: "description", content: "An archive of the southernmost lighthouses on Earth — Cabo de Hornos, Les Éclaireurs, Evangelistas and the keepers who tend them across the Chilean south." },
+      { property: "og:title", content: "Lighthouse Explorer — End of the World Atlas" },
+      { property: "og:description", content: "Sentinels of the southern oceans, catalogued by coordinates and luminous range." },
+      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/lighthouses" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/lighthouses" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            { name: "Cabo de Hornos", lat: -55.983, lng: -67.266 },
+            { name: "Les Éclaireurs", lat: -54.866, lng: -68.083 },
+            { name: "Evangelistas", lat: -52.383, lng: -75.1 },
+            { name: "San Isidro", lat: -53.783, lng: -70.966 },
+            { name: "Magdalena Island", lat: -52.916, lng: -70.566 },
+            { name: "Punta Dungeness", lat: -52.4, lng: -68.433 },
+          ].map((l, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Place",
+              name: l.name,
+              geo: { "@type": "GeoCoordinates", latitude: l.lat, longitude: l.lng },
+            },
+          })),
+        }),
+      },
     ],
   }),
   component: Lighthouses,

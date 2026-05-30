@@ -11,9 +11,13 @@ export const Route = createFileRoute("/travel")({
   head: () => ({
     meta: [
       { title: "Travel — Guided Expeditions to the End of the World" },
-      { name: "description", content: "Limited-departure expeditions across Patagonia, Cape Horn and Chilean Antarctica. Premium logistics, scientific guides, small groups." },
+      { name: "description", content: "Limited-departure guided expeditions across Chilean Patagonia, Cape Horn and Chilean Antarctica — premium logistics, scientific guides, small groups." },
       { property: "og:title", content: "Travel — Guided Expeditions" },
-      { property: "og:description", content: "Curated journeys to the southern frontier." },
+      { property: "og:description", content: "Curated journeys to the Chilean austral frontier." },
+      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/travel" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/travel" },
     ],
   }),
   component: TravelPage,
@@ -54,7 +58,7 @@ function TravelPage() {
       <SiteNav />
 
       <section className="pt-40 pb-20 max-w-[1600px] mx-auto px-6 lg:px-12">
-        <SectionHeading eyebrow="Travel · Limited Departures" title="Guided expeditions to the southern frontier" description="Three signature journeys, conceived with glaciologists, sailors and former Antarctic crew." />
+        <SectionHeading as="h1" eyebrow="Travel · Limited Departures" title="Guided expeditions to the southern frontier" description="Three signature journeys, conceived with glaciologists, sailors and former Antarctic crew." />
       </section>
 
       <section className="pb-24 max-w-[1600px] mx-auto px-6 lg:px-12 grid lg:grid-cols-3 gap-6">
