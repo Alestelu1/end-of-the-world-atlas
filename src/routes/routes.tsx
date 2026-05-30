@@ -2,40 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
+import { southernRoutes } from "@/data/routes";
 import { ArrowRight, Compass, MapPin, Radio } from "lucide-react";
-import torres from "@/assets/torres-paine.jpg";
-import cape from "@/assets/cape-horn.jpg";
-import ant from "@/assets/antarctica.jpg";
-
-const routes = [
-  {
-    img: torres,
-    code: "SR-01",
-    name: "Strait of Magellan Maritime Corridor",
-    reach: "Atlantic to Pacific",
-    distance: "310 nm",
-    signal: "Narrows, sounds, capes",
-    desc: "A cartographic reading of the Strait of Magellan as a working maritime corridor: eastern entrances, tidal narrows, sheltered reaches, lighthouse chains and the long hinge between Patagonia and Tierra del Fuego.",
-  },
-  {
-    img: cape,
-    code: "SR-02",
-    name: "Puerto Williams & the Beagle Channel",
-    reach: "Navarino Island",
-    distance: "130 nm",
-    signal: "Channels, beacons, anchorages",
-    desc: "An editorial route dossier following the Beagle Channel from the austral port of Puerto Williams through island passages, beaconed turns, forested shores and the navigational geography of the southern Fuegian archipelago.",
-  },
-  {
-    img: ant,
-    code: "SR-03",
-    name: "Cape Horn & the Antarctic Threshold",
-    reach: "Horn to Drake Passage",
-    distance: "620 nm",
-    signal: "Cape, ocean gate, threshold",
-    desc: "A geographic profile of Cape Horn as a maritime landmark and Antarctic threshold, tracing the exposed meeting of archipelago, open ocean, lighthouse memory and the routes that lean south toward the polar front.",
-  },
-];
 
 export const Route = createFileRoute("/routes")({
   head: () => ({
@@ -63,7 +31,7 @@ export const Route = createFileRoute("/routes")({
           "@type": "ItemList",
           name: "Southern Routes",
           description: "Editorial-cartographic route dossiers from the End of the World Atlas.",
-          itemListElement: routes.map((route, i) => ({
+          itemListElement: southernRoutes.map((route, i) => ({
             "@type": "ListItem",
             position: i + 1,
             item: {
@@ -98,7 +66,7 @@ function RoutesPage() {
       </section>
 
       <section className="pb-32 max-w-[1600px] mx-auto px-6 lg:px-12 space-y-6">
-        {routes.map((r, i) => (
+        {southernRoutes.map((r, i) => (
           <article
             key={r.code}
             className="group grid lg:grid-cols-[1.2fr_1fr] gap-0 border border-border bg-card hover:border-glacier/60 transition-colors"
