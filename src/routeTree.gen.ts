@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TravelRouteImport } from './routes/travel'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RoutesRouteImport } from './routes/routes'
 import { Route as LighthousesRouteImport } from './routes/lighthouses'
 import { Route as AtlasRouteImport } from './routes/atlas'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TravelRoute = TravelRouteImport.update({
   id: '/travel',
   path: '/travel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RoutesRoute = RoutesRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/atlas': typeof AtlasRoute
   '/lighthouses': typeof LighthousesRoute
   '/routes': typeof RoutesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/atlas': typeof AtlasRoute
   '/lighthouses': typeof LighthousesRoute
   '/routes': typeof RoutesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/atlas': typeof AtlasRoute
   '/lighthouses': typeof LighthousesRoute
   '/routes': typeof RoutesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/atlas' | '/lighthouses' | '/routes' | '/travel'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/atlas'
+    | '/lighthouses'
+    | '/routes'
+    | '/sitemap.xml'
+    | '/travel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/atlas' | '/lighthouses' | '/routes' | '/travel'
+  to:
+    | '/'
+    | '/about'
+    | '/atlas'
+    | '/lighthouses'
+    | '/routes'
+    | '/sitemap.xml'
+    | '/travel'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/atlas'
     | '/lighthouses'
     | '/routes'
+    | '/sitemap.xml'
     | '/travel'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +117,7 @@ export interface RootRouteChildren {
   AtlasRoute: typeof AtlasRoute
   LighthousesRoute: typeof LighthousesRoute
   RoutesRoute: typeof RoutesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TravelRoute: typeof TravelRoute
 }
 
@@ -103,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/travel'
       fullPath: '/travel'
       preLoaderRoute: typeof TravelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/routes': {
@@ -149,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   AtlasRoute: AtlasRoute,
   LighthousesRoute: LighthousesRoute,
   RoutesRoute: RoutesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TravelRoute: TravelRoute,
 }
 export const routeTree = rootRouteImport
