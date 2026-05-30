@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://southern-uncharted-atlas.lovable.app/sitemap.xml

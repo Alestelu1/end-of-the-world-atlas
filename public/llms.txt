@@ -1,0 +1,12 @@
+# End of the World Atlas
+
+> An independent cartographic project documenting Chilean Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica through interactive maps, expedition routes and a lighthouse archive.
+
+## Pages
+
+- [Home](/): Cinematic gateway and overview of the Chilean austral frontier.
+- [Atlas](/atlas): Interactive expedition atlas of the southernmost regions.
+- [Routes](/routes): Premium expedition route guides with GPX tracks and field notes.
+- [Lighthouses](/lighthouses): Archive of southern sentinels — Cabo de Hornos, Les Éclaireurs, Evangelistas and others.
+- [Travel](/travel): Guided expeditions to Patagonia, Cape Horn and Chilean Antarctica.
+- [About](/about): The project, the team and the editorial mission.

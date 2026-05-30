@@ -51,7 +51,7 @@ function Home() {
             Where the maps<br />
             <em className="text-glacier not-italic font-light italic">end</em>, the world begins.
           </h1>
-          <p className="reveal-slow mt-8 max-w-xl text-base md:text-lg text-silver/80 leading-relaxed">
+          <p className="reveal-slow mt-8 max-w-xl text-base md:text-lg text-silver leading-relaxed">
             From Puerto Williams — the southernmost city on Earth — across Navarino Island,
             the Cape Horn archipelago and the Chilean Antarctic projection. Mapping the austral
             frontier through geography, navigation and southern memory.
