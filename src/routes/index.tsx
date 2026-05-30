@@ -16,9 +16,10 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "End of the World Atlas — Patagonia, Cape Horn & Antarctica" },
-      { name: "description", content: "A cinematic atlas of Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica. Maps, expedition routes and lighthouse archives from the last frontier." },
-      { property: "og:title", content: "End of the World Atlas" },
-      { property: "og:description", content: "A visual cartography of the last frontier of the inhabited world." },
+      { name: "description", content: "A cinematic atlas of Chilean Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica — maps, expedition routes and lighthouse archives from the last frontier." },
+      { property: "og:title", content: "End of the World Atlas — Patagonia, Cape Horn & Antarctica" },
+      { property: "og:description", content: "A cinematic atlas of Chilean Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica." },
+      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/" },
     ],
   }),
   component: Home,
@@ -112,7 +113,7 @@ function Home() {
             <div key={p.k} className="p-8 lg:p-10">
               <p.icon className="w-6 h-6 text-glacier" />
               <div className="font-mono text-[10px] tracking-coord text-muted-foreground mt-6">№ {p.k}</div>
-              <h3 className="font-display text-2xl text-ice mt-2">{p.t}</h3>
+              <h2 className="font-display text-2xl text-ice mt-2">{p.t}</h2>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{p.d}</p>
             </div>
           ))}

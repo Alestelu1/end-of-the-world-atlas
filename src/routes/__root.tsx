@@ -29,18 +29,32 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "End of the world atlas" },
-      { name: "description", content: "An interactive atlas for exploring Patagonia, Tierra del Fuego, Cape Horn, and Chilean Antarctica." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "End of the world atlas" },
-      { property: "og:description", content: "An interactive atlas for exploring Patagonia, Tierra del Fuego, Cape Horn, and Chilean Antarctica." },
+      { name: "author", content: "End of the World Atlas" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "End of the world atlas" },
-      { name: "twitter:description", content: "An interactive atlas for exploring Patagonia, Tierra del Fuego, Cape Horn, and Chilean Antarctica." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/X3qWO2Diw7ReTSRr8dC2xbJoyvw1/social-images/social-1777928902253-1.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/X3qWO2Diw7ReTSRr8dC2xbJoyvw1/social-images/social-1777928902253-1.webp" },
+      { property: "og:site_name", content: "End of the World Atlas" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "End of the World Atlas",
+          url: "https://southern-uncharted-atlas.lovable.app",
+          description:
+            "An independent cartographic project documenting Chilean Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica.",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "End of the World Atlas",
+          url: "https://southern-uncharted-atlas.lovable.app",
+        }),
+      },
     ],
     links: [
       {
