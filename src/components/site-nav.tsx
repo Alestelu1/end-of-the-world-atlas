@@ -55,10 +55,10 @@ export function SiteNav() {
         </nav>
 
         <Link
-          to="/travel"
+          to="/atlas"
           className="hidden md:inline-flex text-xs uppercase tracking-coord px-4 py-2 border border-glacier/40 text-ice hover:bg-glacier hover:text-primary-foreground transition-colors"
         >
-          Book Expedition
+          Explore the Atlas
         </Link>
 
         <button onClick={() => setOpen(!open)} className="md:hidden text-ice" aria-label="menu">
