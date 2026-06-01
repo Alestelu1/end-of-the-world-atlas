@@ -5,6 +5,7 @@ import { Menu, X, Compass } from "lucide-react";
 const links = [
   { to: "/", label: "Home" },
   { to: "/atlas", label: "Atlas" },
+  { to: "/places", label: "Places" },
   { to: "/routes", label: "Routes" },
   { to: "/lighthouses", label: "Lighthouses" },
   { to: "/travel", label: "Travel" },
@@ -33,7 +34,9 @@ export function SiteNav() {
           <Compass className="w-5 h-5 text-glacier transition-transform duration-700 group-hover:rotate-180" />
           <div className="leading-none">
             <div className="font-display text-base text-ice">End of the World</div>
-            <div className="font-mono text-[9px] tracking-coord text-muted-foreground uppercase">Atlas · 56°S</div>
+            <div className="font-mono text-[9px] tracking-coord text-muted-foreground uppercase">
+              Atlas · 56°S
+            </div>
           </div>
         </Link>
 
@@ -52,17 +55,13 @@ export function SiteNav() {
         </nav>
 
         <Link
-          to="/travel"
+          to="/atlas"
           className="hidden md:inline-flex text-xs uppercase tracking-coord px-4 py-2 border border-glacier/40 text-ice hover:bg-glacier hover:text-primary-foreground transition-colors"
         >
-          Book Expedition
+          Explore the Atlas
         </Link>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-ice"
-          aria-label="menu"
-        >
+        <button onClick={() => setOpen(!open)} className="md:hidden text-ice" aria-label="menu">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
