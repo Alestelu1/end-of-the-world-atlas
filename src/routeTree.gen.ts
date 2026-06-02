@@ -17,6 +17,7 @@ import { Route as LighthousesRouteImport } from './routes/lighthouses'
 import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
 
 const TravelRoute = TravelRouteImport.update({
   id: '/travel',
@@ -58,26 +59,33 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlacesPuertoWilliamsRoute = PlacesPuertoWilliamsRouteImport.update({
+  id: '/puerto-williams',
+  path: '/puerto-williams',
+  getParentRoute: () => PlacesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/atlas': typeof AtlasRoute
   '/lighthouses': typeof LighthousesRoute
-  '/places': typeof PlacesRoute
+  '/places': typeof PlacesRouteWithChildren
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/atlas': typeof AtlasRoute
   '/lighthouses': typeof LighthousesRoute
-  '/places': typeof PlacesRoute
+  '/places': typeof PlacesRouteWithChildren
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -85,10 +93,11 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/atlas': typeof AtlasRoute
   '/lighthouses': typeof LighthousesRoute
-  '/places': typeof PlacesRoute
+  '/places': typeof PlacesRouteWithChildren
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/puerto-williams'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/puerto-williams'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/puerto-williams'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -128,7 +140,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AtlasRoute: typeof AtlasRoute
   LighthousesRoute: typeof LighthousesRoute
-  PlacesRoute: typeof PlacesRoute
+  PlacesRoute: typeof PlacesRouteWithChildren
   RoutesRoute: typeof RoutesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TravelRoute: typeof TravelRoute
@@ -192,15 +204,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/places/puerto-williams': {
+      id: '/places/puerto-williams'
+      path: '/puerto-williams'
+      fullPath: '/places/puerto-williams'
+      preLoaderRoute: typeof PlacesPuertoWilliamsRouteImport
+      parentRoute: typeof PlacesRoute
+    }
   }
 }
+
+interface PlacesRouteChildren {
+  PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
+}
+
+const PlacesRouteChildren: PlacesRouteChildren = {
+  PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
+}
+
+const PlacesRouteWithChildren =
+  PlacesRoute._addFileChildren(PlacesRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AtlasRoute: AtlasRoute,
   LighthousesRoute: LighthousesRoute,
-  PlacesRoute: PlacesRoute,
+  PlacesRoute: PlacesRouteWithChildren,
   RoutesRoute: RoutesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TravelRoute: TravelRoute,
