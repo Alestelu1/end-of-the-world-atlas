@@ -18,6 +18,7 @@ import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
+import { Route as PlacesNavarinoIslandRouteImport } from './routes/places/navarino-island'
 import { Route as PlacesCapeHornRouteImport } from './routes/places/cape-horn'
 import { Route as PlacesBeagleChannelRouteImport } from './routes/places/beagle-channel'
 
@@ -66,6 +67,11 @@ const PlacesPuertoWilliamsRoute = PlacesPuertoWilliamsRouteImport.update({
   path: '/puerto-williams',
   getParentRoute: () => PlacesRoute,
 } as any)
+const PlacesNavarinoIslandRoute = PlacesNavarinoIslandRouteImport.update({
+  id: '/navarino-island',
+  path: '/navarino-island',
+  getParentRoute: () => PlacesRoute,
+} as any)
 const PlacesCapeHornRoute = PlacesCapeHornRouteImport.update({
   id: '/cape-horn',
   path: '/cape-horn',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/travel': typeof TravelRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
+  '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRoutesByTo {
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/travel': typeof TravelRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
+  '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRoutesById {
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/travel': typeof TravelRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
+  '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRouteTypes {
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/travel'
     | '/places/beagle-channel'
     | '/places/cape-horn'
+    | '/places/navarino-island'
     | '/places/puerto-williams'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/travel'
     | '/places/beagle-channel'
     | '/places/cape-horn'
+    | '/places/navarino-island'
     | '/places/puerto-williams'
   id:
     | '__root__'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/travel'
     | '/places/beagle-channel'
     | '/places/cape-horn'
+    | '/places/navarino-island'
     | '/places/puerto-williams'
   fileRoutesById: FileRoutesById
 }
@@ -235,6 +247,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlacesPuertoWilliamsRouteImport
       parentRoute: typeof PlacesRoute
     }
+    '/places/navarino-island': {
+      id: '/places/navarino-island'
+      path: '/navarino-island'
+      fullPath: '/places/navarino-island'
+      preLoaderRoute: typeof PlacesNavarinoIslandRouteImport
+      parentRoute: typeof PlacesRoute
+    }
     '/places/cape-horn': {
       id: '/places/cape-horn'
       path: '/cape-horn'
@@ -255,12 +274,14 @@ declare module '@tanstack/react-router' {
 interface PlacesRouteChildren {
   PlacesBeagleChannelRoute: typeof PlacesBeagleChannelRoute
   PlacesCapeHornRoute: typeof PlacesCapeHornRoute
+  PlacesNavarinoIslandRoute: typeof PlacesNavarinoIslandRoute
   PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
 }
 
 const PlacesRouteChildren: PlacesRouteChildren = {
   PlacesBeagleChannelRoute: PlacesBeagleChannelRoute,
   PlacesCapeHornRoute: PlacesCapeHornRoute,
+  PlacesNavarinoIslandRoute: PlacesNavarinoIslandRoute,
   PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
 }
 
