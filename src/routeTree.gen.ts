@@ -17,6 +17,7 @@ import { Route as LighthousesRouteImport } from './routes/lighthouses'
 import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlacesPuntaArenasRouteImport } from './routes/places/punta-arenas'
 import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
 import { Route as PlacesNavarinoIslandRouteImport } from './routes/places/navarino-island'
 import { Route as PlacesDiegoRamirezIslandsRouteImport } from './routes/places/diego-ramirez-islands'
@@ -63,6 +64,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlacesPuntaArenasRoute = PlacesPuntaArenasRouteImport.update({
+  id: '/punta-arenas',
+  path: '/punta-arenas',
+  getParentRoute: () => PlacesRoute,
+} as any)
 const PlacesPuertoWilliamsRoute = PlacesPuertoWilliamsRouteImport.update({
   id: '/puerto-williams',
   path: '/puerto-williams',
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
+  '/places/punta-arenas': typeof PlacesPuntaArenasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
+  '/places/punta-arenas': typeof PlacesPuntaArenasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -135,6 +143,7 @@ export interface FileRoutesById {
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
+  '/places/punta-arenas': typeof PlacesPuntaArenasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
     | '/places/puerto-williams'
+    | '/places/punta-arenas'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -167,6 +177,7 @@ export interface FileRouteTypes {
     | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
     | '/places/puerto-williams'
+    | '/places/punta-arenas'
   id:
     | '__root__'
     | '/'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
     | '/places/puerto-williams'
+    | '/places/punta-arenas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -253,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/places/punta-arenas': {
+      id: '/places/punta-arenas'
+      path: '/punta-arenas'
+      fullPath: '/places/punta-arenas'
+      preLoaderRoute: typeof PlacesPuntaArenasRouteImport
+      parentRoute: typeof PlacesRoute
+    }
     '/places/puerto-williams': {
       id: '/places/puerto-williams'
       path: '/puerto-williams'
@@ -297,6 +316,7 @@ interface PlacesRouteChildren {
   PlacesDiegoRamirezIslandsRoute: typeof PlacesDiegoRamirezIslandsRoute
   PlacesNavarinoIslandRoute: typeof PlacesNavarinoIslandRoute
   PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
+  PlacesPuntaArenasRoute: typeof PlacesPuntaArenasRoute
 }
 
 const PlacesRouteChildren: PlacesRouteChildren = {
@@ -305,6 +325,7 @@ const PlacesRouteChildren: PlacesRouteChildren = {
   PlacesDiegoRamirezIslandsRoute: PlacesDiegoRamirezIslandsRoute,
   PlacesNavarinoIslandRoute: PlacesNavarinoIslandRoute,
   PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
+  PlacesPuntaArenasRoute: PlacesPuntaArenasRoute,
 }
 
 const PlacesRouteWithChildren =
