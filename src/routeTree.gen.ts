@@ -18,6 +18,7 @@ import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
+import { Route as PlacesCapeHornRouteImport } from './routes/places/cape-horn'
 
 const TravelRoute = TravelRouteImport.update({
   id: '/travel',
@@ -64,6 +65,11 @@ const PlacesPuertoWilliamsRoute = PlacesPuertoWilliamsRouteImport.update({
   path: '/puerto-williams',
   getParentRoute: () => PlacesRoute,
 } as any)
+const PlacesCapeHornRoute = PlacesCapeHornRouteImport.update({
+  id: '/cape-horn',
+  path: '/cape-horn',
+  getParentRoute: () => PlacesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/cape-horn'
     | '/places/puerto-williams'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/cape-horn'
     | '/places/puerto-williams'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/cape-horn'
     | '/places/puerto-williams'
   fileRoutesById: FileRoutesById
 }
@@ -211,14 +223,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlacesPuertoWilliamsRouteImport
       parentRoute: typeof PlacesRoute
     }
+    '/places/cape-horn': {
+      id: '/places/cape-horn'
+      path: '/cape-horn'
+      fullPath: '/places/cape-horn'
+      preLoaderRoute: typeof PlacesCapeHornRouteImport
+      parentRoute: typeof PlacesRoute
+    }
   }
 }
 
 interface PlacesRouteChildren {
+  PlacesCapeHornRoute: typeof PlacesCapeHornRoute
   PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
 }
 
 const PlacesRouteChildren: PlacesRouteChildren = {
+  PlacesCapeHornRoute: PlacesCapeHornRoute,
   PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
 }
 
