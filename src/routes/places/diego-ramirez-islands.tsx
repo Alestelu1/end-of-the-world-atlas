@@ -6,12 +6,12 @@ import { atlasPlaces } from "@/data/places";
 import { Anchor, Compass, MapPin, Route as RouteIcon } from "lucide-react";
 
 const place = atlasPlaces.find((item) => item.slug === "diego-ramirez-islands");
-const placeName = "Diego Ramirez Islands";
 
 if (!place) {
-  throw new Error("Diego Ramirez Islands place data is missing.");
+  throw new Error("Diego Ramírez Islands place data is missing.");
 }
 
+const placeName = place.name;
 const relatedPlaceNames = ["Cape Horn", "Navarino Island", "Beagle Channel", "Antarctic Threshold"];
 
 const contexts = [
@@ -21,7 +21,7 @@ const contexts = [
   },
   {
     title: "Geographic Context",
-    body: "The Diego Ramirez Islands sit southwest of Cape Horn as a small island group beyond the main Fuegian archipelago. Their position is defined by open water, latitude, exposed rock and distance from the channel systems that organize the islands farther north.",
+    body: "The Diego Ramírez Islands sit southwest of Cape Horn as a small island group beyond the main Fuegian archipelago. Their position is defined by open water, latitude, exposed rock and distance from the channel systems that organize the islands farther north.",
   },
   {
     title: "Southern Ocean Context",
@@ -29,7 +29,7 @@ const contexts = [
   },
   {
     title: "Cape Horn & Drake Passage Context",
-    body: "Cape Horn remains the nearest major cartographic reference, but the Diego Ramirez Islands sit farther into the exposed field associated with the Drake Passage. They extend the southern reading of the Horn from cape and lighthouse point into offshore island notation.",
+    body: "Cape Horn remains the nearest major cartographic reference, but the Diego Ramírez Islands sit farther into the exposed field associated with the Drake Passage. They extend the southern reading of the Horn from cape and lighthouse point into offshore island notation.",
   },
   {
     title: "Antarctic Threshold Context",
@@ -44,13 +44,13 @@ export const Route = createFileRoute("/places/diego-ramirez-islands")({
       {
         name: "description",
         content:
-          "A documentary and cartographic place dossier for the Diego Ramirez Islands, positioned southwest of Cape Horn in open subantarctic waters near the Antarctic threshold.",
+          "A documentary and cartographic place dossier for the Diego Ramírez Islands, positioned southwest of Cape Horn in open subantarctic waters near the Antarctic threshold.",
       },
       { property: "og:title", content: `${placeName} - End of the World Atlas` },
       {
         property: "og:description",
         content:
-          "A cartographic reading of the Diego Ramirez Islands as ocean rock, southern limit marker and exposed threshold geography beyond Cape Horn.",
+          "A cartographic reading of the Diego Ramírez Islands as ocean rock, southern limit marker and exposed threshold geography beyond Cape Horn.",
       },
       {
         property: "og:url",
@@ -137,7 +137,7 @@ function DiegoRamirezIslandsPage() {
           <div className="bg-background p-8 lg:p-10">
             <div className="text-xs uppercase tracking-coord text-glacier">Documentary note</div>
             <p className="font-display text-3xl md:text-5xl text-ice mt-5 leading-[1.12] text-balance">
-              The Diego Ramirez Islands are presented here as an offshore southern notation: ocean
+              The Diego Ramírez Islands are presented here as an offshore southern notation: ocean
               rock, current, latitude and a threshold marker beyond the main Fuegian archipelago.
             </p>
           </div>

@@ -14,7 +14,7 @@ if (!place) {
 const relatedPlaceNames = [
   "Puerto Williams",
   "Navarino Island",
-  "Diego Ramirez Islands",
+  "Diego Ramírez Islands",
   "Antarctic Threshold",
 ];
 
