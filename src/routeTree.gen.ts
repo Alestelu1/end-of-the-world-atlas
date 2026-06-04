@@ -23,6 +23,7 @@ import { Route as PlacesNavarinoIslandRouteImport } from './routes/places/navari
 import { Route as PlacesDiegoRamirezIslandsRouteImport } from './routes/places/diego-ramirez-islands'
 import { Route as PlacesCapeHornRouteImport } from './routes/places/cape-horn'
 import { Route as PlacesBeagleChannelRouteImport } from './routes/places/beagle-channel'
+import { Route as PlacesAntarcticThresholdRouteImport } from './routes/places/antarctic-threshold'
 
 const TravelRoute = TravelRouteImport.update({
   id: '/travel',
@@ -95,6 +96,12 @@ const PlacesBeagleChannelRoute = PlacesBeagleChannelRouteImport.update({
   path: '/beagle-channel',
   getParentRoute: () => PlacesRoute,
 } as any)
+const PlacesAntarcticThresholdRoute =
+  PlacesAntarcticThresholdRouteImport.update({
+    id: '/antarctic-threshold',
+    path: '/antarctic-threshold',
+    getParentRoute: () => PlacesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/antarctic-threshold': typeof PlacesAntarcticThresholdRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
@@ -121,6 +129,7 @@ export interface FileRoutesByTo {
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/antarctic-threshold': typeof PlacesAntarcticThresholdRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
@@ -138,6 +147,7 @@ export interface FileRoutesById {
   '/routes': typeof RoutesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel': typeof TravelRoute
+  '/places/antarctic-threshold': typeof PlacesAntarcticThresholdRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/antarctic-threshold'
     | '/places/beagle-channel'
     | '/places/cape-horn'
     | '/places/diego-ramirez-islands'
@@ -172,6 +183,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/antarctic-threshold'
     | '/places/beagle-channel'
     | '/places/cape-horn'
     | '/places/diego-ramirez-islands'
@@ -188,6 +200,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/sitemap.xml'
     | '/travel'
+    | '/places/antarctic-threshold'
     | '/places/beagle-channel'
     | '/places/cape-horn'
     | '/places/diego-ramirez-islands'
@@ -307,10 +320,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlacesBeagleChannelRouteImport
       parentRoute: typeof PlacesRoute
     }
+    '/places/antarctic-threshold': {
+      id: '/places/antarctic-threshold'
+      path: '/antarctic-threshold'
+      fullPath: '/places/antarctic-threshold'
+      preLoaderRoute: typeof PlacesAntarcticThresholdRouteImport
+      parentRoute: typeof PlacesRoute
+    }
   }
 }
 
 interface PlacesRouteChildren {
+  PlacesAntarcticThresholdRoute: typeof PlacesAntarcticThresholdRoute
   PlacesBeagleChannelRoute: typeof PlacesBeagleChannelRoute
   PlacesCapeHornRoute: typeof PlacesCapeHornRoute
   PlacesDiegoRamirezIslandsRoute: typeof PlacesDiegoRamirezIslandsRoute
@@ -320,6 +341,7 @@ interface PlacesRouteChildren {
 }
 
 const PlacesRouteChildren: PlacesRouteChildren = {
+  PlacesAntarcticThresholdRoute: PlacesAntarcticThresholdRoute,
   PlacesBeagleChannelRoute: PlacesBeagleChannelRoute,
   PlacesCapeHornRoute: PlacesCapeHornRoute,
   PlacesDiegoRamirezIslandsRoute: PlacesDiegoRamirezIslandsRoute,
