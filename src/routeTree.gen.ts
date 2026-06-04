@@ -19,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
 import { Route as PlacesNavarinoIslandRouteImport } from './routes/places/navarino-island'
+import { Route as PlacesDiegoRamirezIslandsRouteImport } from './routes/places/diego-ramirez-islands'
 import { Route as PlacesCapeHornRouteImport } from './routes/places/cape-horn'
 import { Route as PlacesBeagleChannelRouteImport } from './routes/places/beagle-channel'
 
@@ -72,6 +73,12 @@ const PlacesNavarinoIslandRoute = PlacesNavarinoIslandRouteImport.update({
   path: '/navarino-island',
   getParentRoute: () => PlacesRoute,
 } as any)
+const PlacesDiegoRamirezIslandsRoute =
+  PlacesDiegoRamirezIslandsRouteImport.update({
+    id: '/diego-ramirez-islands',
+    path: '/diego-ramirez-islands',
+    getParentRoute: () => PlacesRoute,
+  } as any)
 const PlacesCapeHornRoute = PlacesCapeHornRouteImport.update({
   id: '/cape-horn',
   path: '/cape-horn',
@@ -94,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/travel': typeof TravelRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
+  '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
@@ -108,6 +116,7 @@ export interface FileRoutesByTo {
   '/travel': typeof TravelRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
+  '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
@@ -123,6 +132,7 @@ export interface FileRoutesById {
   '/travel': typeof TravelRoute
   '/places/beagle-channel': typeof PlacesBeagleChannelRoute
   '/places/cape-horn': typeof PlacesCapeHornRoute
+  '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
 }
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/travel'
     | '/places/beagle-channel'
     | '/places/cape-horn'
+    | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
     | '/places/puerto-williams'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/travel'
     | '/places/beagle-channel'
     | '/places/cape-horn'
+    | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
     | '/places/puerto-williams'
   id:
@@ -167,6 +179,7 @@ export interface FileRouteTypes {
     | '/travel'
     | '/places/beagle-channel'
     | '/places/cape-horn'
+    | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
     | '/places/puerto-williams'
   fileRoutesById: FileRoutesById
@@ -254,6 +267,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlacesNavarinoIslandRouteImport
       parentRoute: typeof PlacesRoute
     }
+    '/places/diego-ramirez-islands': {
+      id: '/places/diego-ramirez-islands'
+      path: '/diego-ramirez-islands'
+      fullPath: '/places/diego-ramirez-islands'
+      preLoaderRoute: typeof PlacesDiegoRamirezIslandsRouteImport
+      parentRoute: typeof PlacesRoute
+    }
     '/places/cape-horn': {
       id: '/places/cape-horn'
       path: '/cape-horn'
@@ -274,6 +294,7 @@ declare module '@tanstack/react-router' {
 interface PlacesRouteChildren {
   PlacesBeagleChannelRoute: typeof PlacesBeagleChannelRoute
   PlacesCapeHornRoute: typeof PlacesCapeHornRoute
+  PlacesDiegoRamirezIslandsRoute: typeof PlacesDiegoRamirezIslandsRoute
   PlacesNavarinoIslandRoute: typeof PlacesNavarinoIslandRoute
   PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
 }
@@ -281,6 +302,7 @@ interface PlacesRouteChildren {
 const PlacesRouteChildren: PlacesRouteChildren = {
   PlacesBeagleChannelRoute: PlacesBeagleChannelRoute,
   PlacesCapeHornRoute: PlacesCapeHornRoute,
+  PlacesDiegoRamirezIslandsRoute: PlacesDiegoRamirezIslandsRoute,
   PlacesNavarinoIslandRoute: PlacesNavarinoIslandRoute,
   PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
 }
