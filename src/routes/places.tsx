@@ -1,9 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
 import { atlasPlaces } from "@/data/places";
 import { Compass, MapPin } from "lucide-react";
+
+const placePageRoutes = {
+  "antarctic-threshold": "/places/antarctic-threshold",
+  "beagle-channel": "/places/beagle-channel",
+  "cape-horn": "/places/cape-horn",
+  "diego-ramirez-islands": "/places/diego-ramirez-islands",
+  "navarino-island": "/places/navarino-island",
+  "puerto-williams": "/places/puerto-williams",
+  "punta-arenas": "/places/punta-arenas",
+} as const;
 
 export const Route = createFileRoute("/places")({
   head: () => ({
@@ -67,61 +77,75 @@ function PlacesPage() {
 
       <section className="pb-32 max-w-[1600px] mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-border">
-          {atlasPlaces.map((place, i) => (
-            <article
-              key={place.slug}
-              className="bg-background p-7 lg:p-8 hover:bg-card transition-colors"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="text-xs uppercase tracking-coord text-glacier">
-                  {place.category}
-                </div>
-                <div className="font-mono text-[10px] tracking-coord text-muted-foreground">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-              </div>
+          {atlasPlaces.map((place, i) => {
+            const placeRoute = placePageRoutes[place.slug as keyof typeof placePageRoutes];
 
-              <h2 className="font-display text-3xl md:text-4xl text-ice mt-4">{place.name}</h2>
-
-              <div className="mt-4 space-y-2 text-xs uppercase tracking-coord">
-                <div className="flex items-start gap-2 text-muted-foreground">
-                  <MapPin className="w-4 h-4 text-glacier shrink-0" />
-                  <span>{place.region}</span>
+            return (
+              <article
+                key={place.slug}
+                className="bg-background p-7 lg:p-8 hover:bg-card transition-colors"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="text-xs uppercase tracking-coord text-glacier">
+                    {place.category}
+                  </div>
+                  <div className="font-mono text-[10px] tracking-coord text-muted-foreground">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
                 </div>
-                <div className="flex items-start gap-2 text-muted-foreground">
-                  <Compass className="w-4 h-4 text-glacier shrink-0" />
-                  <span>{place.coordinatesLabel}</span>
-                </div>
-              </div>
 
-              <p className="text-sm text-muted-foreground mt-6 leading-relaxed">{place.summary}</p>
+                <h2 className="font-display text-3xl md:text-4xl text-ice mt-4">
+                  {placeRoute ? (
+                    <Link to={placeRoute} className="hover:text-glacier transition-colors">
+                      {place.name}
+                    </Link>
+                  ) : (
+                    place.name
+                  )}
+                </h2>
 
-              <div className="mt-6 hairline pt-5">
-                <div className="text-[10px] uppercase tracking-coord text-glacier">
-                  Editorial angle
+                <div className="mt-4 space-y-2 text-xs uppercase tracking-coord">
+                  <div className="flex items-start gap-2 text-muted-foreground">
+                    <MapPin className="w-4 h-4 text-glacier shrink-0" />
+                    <span>{place.region}</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-muted-foreground">
+                    <Compass className="w-4 h-4 text-glacier shrink-0" />
+                    <span>{place.coordinatesLabel}</span>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-                  {place.editorialAngle}
+
+                <p className="text-sm text-muted-foreground mt-6 leading-relaxed">
+                  {place.summary}
                 </p>
-              </div>
 
-              <div className="mt-6 hairline pt-5">
-                <div className="text-[10px] uppercase tracking-coord text-glacier">
-                  Related routes
+                <div className="mt-6 hairline pt-5">
+                  <div className="text-[10px] uppercase tracking-coord text-glacier">
+                    Editorial angle
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    {place.editorialAngle}
+                  </p>
                 </div>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {place.relatedRoutes.map((route) => (
-                    <span
-                      key={route}
-                      className="border border-border px-3 py-1.5 text-[10px] uppercase tracking-coord text-muted-foreground"
-                    >
-                      {route}
-                    </span>
-                  ))}
+
+                <div className="mt-6 hairline pt-5">
+                  <div className="text-[10px] uppercase tracking-coord text-glacier">
+                    Related routes
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {place.relatedRoutes.map((route) => (
+                      <span
+                        key={route}
+                        className="border border-border px-3 py-1.5 text-[10px] uppercase tracking-coord text-muted-foreground"
+                      >
+                        {route}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
       <SiteFooter />

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://southern-uncharted-atlas.lovable.app";
+const BASE_URL = "https://end-of-the-world-atlas.example";
 
 interface SitemapEntry {
   path: string;
@@ -16,9 +16,16 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/atlas", changefreq: "weekly", priority: "0.9" },
+          { path: "/places", changefreq: "weekly", priority: "0.9" },
+          { path: "/places/puerto-williams", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/cape-horn", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/beagle-channel", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/navarino-island", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/diego-ramirez-islands", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/punta-arenas", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/antarctic-threshold", changefreq: "monthly", priority: "0.8" },
           { path: "/routes", changefreq: "weekly", priority: "0.9" },
           { path: "/lighthouses", changefreq: "monthly", priority: "0.8" },
-          { path: "/travel", changefreq: "weekly", priority: "0.9" },
           { path: "/about", changefreq: "monthly", priority: "0.6" },
         ];
 
