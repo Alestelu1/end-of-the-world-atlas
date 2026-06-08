@@ -18,6 +18,7 @@ import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlacesStraitOfMagellanRouteImport } from './routes/places/strait-of-magellan'
+import { Route as PlacesRutaVicunaYendegaiaRouteImport } from './routes/places/ruta-vicuna-yendegaia'
 import { Route as PlacesPuntaArenasRouteImport } from './routes/places/punta-arenas'
 import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
 import { Route as PlacesNavarinoIslandRouteImport } from './routes/places/navarino-island'
@@ -71,6 +72,12 @@ const PlacesStraitOfMagellanRoute = PlacesStraitOfMagellanRouteImport.update({
   path: '/strait-of-magellan',
   getParentRoute: () => PlacesRoute,
 } as any)
+const PlacesRutaVicunaYendegaiaRoute =
+  PlacesRutaVicunaYendegaiaRouteImport.update({
+    id: '/ruta-vicuna-yendegaia',
+    path: '/ruta-vicuna-yendegaia',
+    getParentRoute: () => PlacesRoute,
+  } as any)
 const PlacesPuntaArenasRoute = PlacesPuntaArenasRouteImport.update({
   id: '/punta-arenas',
   path: '/punta-arenas',
@@ -125,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
+  '/places/ruta-vicuna-yendegaia': typeof PlacesRutaVicunaYendegaiaRoute
   '/places/strait-of-magellan': typeof PlacesStraitOfMagellanRoute
 }
 export interface FileRoutesByTo {
@@ -143,6 +151,7 @@ export interface FileRoutesByTo {
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
+  '/places/ruta-vicuna-yendegaia': typeof PlacesRutaVicunaYendegaiaRoute
   '/places/strait-of-magellan': typeof PlacesStraitOfMagellanRoute
 }
 export interface FileRoutesById {
@@ -162,6 +171,7 @@ export interface FileRoutesById {
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
+  '/places/ruta-vicuna-yendegaia': typeof PlacesRutaVicunaYendegaiaRoute
   '/places/strait-of-magellan': typeof PlacesStraitOfMagellanRoute
 }
 export interface FileRouteTypes {
@@ -182,6 +192,7 @@ export interface FileRouteTypes {
     | '/places/navarino-island'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
+    | '/places/ruta-vicuna-yendegaia'
     | '/places/strait-of-magellan'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -200,6 +211,7 @@ export interface FileRouteTypes {
     | '/places/navarino-island'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
+    | '/places/ruta-vicuna-yendegaia'
     | '/places/strait-of-magellan'
   id:
     | '__root__'
@@ -218,6 +230,7 @@ export interface FileRouteTypes {
     | '/places/navarino-island'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
+    | '/places/ruta-vicuna-yendegaia'
     | '/places/strait-of-magellan'
   fileRoutesById: FileRoutesById
 }
@@ -297,6 +310,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlacesStraitOfMagellanRouteImport
       parentRoute: typeof PlacesRoute
     }
+    '/places/ruta-vicuna-yendegaia': {
+      id: '/places/ruta-vicuna-yendegaia'
+      path: '/ruta-vicuna-yendegaia'
+      fullPath: '/places/ruta-vicuna-yendegaia'
+      preLoaderRoute: typeof PlacesRutaVicunaYendegaiaRouteImport
+      parentRoute: typeof PlacesRoute
+    }
     '/places/punta-arenas': {
       id: '/places/punta-arenas'
       path: '/punta-arenas'
@@ -357,6 +377,7 @@ interface PlacesRouteChildren {
   PlacesNavarinoIslandRoute: typeof PlacesNavarinoIslandRoute
   PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
   PlacesPuntaArenasRoute: typeof PlacesPuntaArenasRoute
+  PlacesRutaVicunaYendegaiaRoute: typeof PlacesRutaVicunaYendegaiaRoute
   PlacesStraitOfMagellanRoute: typeof PlacesStraitOfMagellanRoute
 }
 
@@ -368,6 +389,7 @@ const PlacesRouteChildren: PlacesRouteChildren = {
   PlacesNavarinoIslandRoute: PlacesNavarinoIslandRoute,
   PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
   PlacesPuntaArenasRoute: PlacesPuntaArenasRoute,
+  PlacesRutaVicunaYendegaiaRoute: PlacesRutaVicunaYendegaiaRoute,
   PlacesStraitOfMagellanRoute: PlacesStraitOfMagellanRoute,
 }
 
