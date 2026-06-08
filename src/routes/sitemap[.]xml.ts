@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://end-of-the-world-atlas.example";
+const BASE_URL = "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev";
 
 interface SitemapEntry {
   path: string;

@@ -18,17 +18,36 @@ export function SiteFooter() {
         <div>
           <div className="text-xs uppercase tracking-coord text-glacier mb-4">Explore</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/atlas" className="hover:text-ice">Atlas</Link></li>
-            <li><Link to="/routes" className="hover:text-ice">Routes</Link></li>
-            <li><Link to="/lighthouses" className="hover:text-ice">Lighthouses</Link></li>
+            <li>
+              <Link to="/atlas" className="hover:text-ice">
+                Atlas
+              </Link>
+            </li>
+            <li>
+              <Link to="/routes" className="hover:text-ice">
+                Routes
+              </Link>
+            </li>
+            <li>
+              <Link to="/lighthouses" className="hover:text-ice">
+                Lighthouses
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
-          <div className="text-xs uppercase tracking-coord text-glacier mb-4">Travel</div>
+          <div className="text-xs uppercase tracking-coord text-glacier mb-4">Reference</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/travel" className="hover:text-ice">Expeditions</Link></li>
-            <li><Link to="/travel" className="hover:text-ice">Premium guides</Link></li>
-            <li><Link to="/about" className="hover:text-ice">About</Link></li>
+            <li>
+              <Link to="/places" className="hover:text-ice">
+                Places
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-ice">
+                About
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

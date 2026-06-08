@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -21,21 +21,29 @@ const placePageRoutes = {
 export const Route = createFileRoute("/places")({
   head: () => ({
     meta: [
-      { title: "Atlas Places — End of the World Atlas" },
+      { title: "Atlas Places â€” End of the World Atlas" },
       {
         name: "description",
         content:
           "A documentary and cartographic index of places across Chile's far south, from Punta Arenas and Puerto Williams to Cape Horn and the Antarctic threshold.",
       },
-      { property: "og:title", content: "Atlas Places — End of the World Atlas" },
+      { property: "og:title", content: "Atlas Places â€” End of the World Atlas" },
       {
         property: "og:description",
         content:
           "A documentary and cartographic index of ports, channels, capes, islands and threshold geographies across Chile's far south.",
       },
-      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/places" },
+      {
+        property: "og:url",
+        content: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places",
+      },
     ],
-    links: [{ rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/places" }],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",

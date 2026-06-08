@@ -1,4 +1,4 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+﻿import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -41,7 +41,7 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "End of the World Atlas",
-          url: "https://southern-uncharted-atlas.lovable.app",
+          url: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev",
           description:
             "An independent cartographic project documenting Chilean Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica.",
         }),
@@ -52,7 +52,7 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "End of the World Atlas",
-          url: "https://southern-uncharted-atlas.lovable.app",
+          url: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev",
         }),
       },
     ],

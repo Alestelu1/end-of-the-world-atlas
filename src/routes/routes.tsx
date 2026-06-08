@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -20,9 +20,17 @@ export const Route = createFileRoute("/routes")({
         content:
           "Cartographic dossiers on austral navigation, lighthouse chains and southern channel geography.",
       },
-      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/routes" },
+      {
+        property: "og:url",
+        content: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/routes",
+      },
     ],
-    links: [{ rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/routes" }],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/routes",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -115,7 +123,7 @@ function RoutesPage() {
                   to="/atlas"
                   className="inline-flex items-center gap-3 bg-ice text-primary-foreground px-6 py-3 text-xs uppercase tracking-coord hover:bg-glacier transition-colors"
                 >
-                  Read route dossier
+                  Explore atlas context
                 </Link>
                 <Link
                   to="/lighthouses"

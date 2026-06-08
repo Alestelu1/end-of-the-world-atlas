@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -11,7 +11,12 @@ if (!place) {
   throw new Error("Navarino Island place data is missing.");
 }
 
-const relatedPlaceNames = ["Puerto Williams", "Beagle Channel", "Cape Horn", "Antarctic Threshold"];
+const relatedPlaces = [
+  { name: "Puerto Williams", to: "/places/puerto-williams" },
+  { name: "Beagle Channel", to: "/places/beagle-channel" },
+  { name: "Cape Horn", to: "/places/cape-horn" },
+  { name: "Antarctic Threshold", to: "/places/antarctic-threshold" },
+] as const;
 
 const contexts = [
   {
@@ -53,13 +58,14 @@ export const Route = createFileRoute("/places/navarino-island")({
       },
       {
         property: "og:url",
-        content: "https://southern-uncharted-atlas.lovable.app/places/navarino-island",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/navarino-island",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://southern-uncharted-atlas.lovable.app/places/navarino-island",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/navarino-island",
       },
     ],
     scripts: [
@@ -181,14 +187,14 @@ function NavarinoIslandPage() {
               Adjacent atlas places
             </div>
             <div className="mt-6 grid sm:grid-cols-2 gap-px bg-border">
-              {relatedPlaceNames.map((name) => (
-                <div key={name} className="bg-card p-5">
-                  <div className="text-ice">{name}</div>
+              {relatedPlaces.map((relatedPlace) => (
+                <div key={relatedPlace.name} className="bg-card p-5">
+                  <div className="text-ice">{relatedPlace.name}</div>
                   <Link
-                    to="/places"
+                    to={relatedPlace.to}
                     className="mt-3 inline-flex text-[10px] uppercase tracking-coord text-glacier hover:text-ice"
                   >
-                    View in atlas places
+                    View place dossier
                   </Link>
                 </div>
               ))}

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -11,7 +11,12 @@ if (!place) {
   throw new Error("Strait of Magellan place data is missing.");
 }
 
-const relatedPlaceNames = ["Punta Arenas", "Beagle Channel", "Puerto Williams", "Cape Horn"];
+const relatedPlaces = [
+  { name: "Punta Arenas", to: "/places/punta-arenas" },
+  { name: "Beagle Channel", to: "/places/beagle-channel" },
+  { name: "Puerto Williams", to: "/places/puerto-williams" },
+  { name: "Cape Horn", to: "/places/cape-horn" },
+] as const;
 
 const contexts = [
   {
@@ -39,13 +44,13 @@ const contexts = [
 export const Route = createFileRoute("/places/strait-of-magellan")({
   head: () => ({
     meta: [
-      { title: "Strait of Magellan — End of the World Atlas" },
+      { title: "Strait of Magellan â€” End of the World Atlas" },
       {
         name: "description",
         content:
           "A documentary and cartographic place dossier for the Strait of Magellan, the maritime corridor separating Patagonia and Tierra del Fuego through narrows, reaches, capes and lights.",
       },
-      { property: "og:title", content: "Strait of Magellan — End of the World Atlas" },
+      { property: "og:title", content: "Strait of Magellan â€” End of the World Atlas" },
       {
         property: "og:description",
         content:
@@ -53,13 +58,14 @@ export const Route = createFileRoute("/places/strait-of-magellan")({
       },
       {
         property: "og:url",
-        content: "https://end-of-the-world-atlas.example/places/strait-of-magellan",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/strait-of-magellan",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://end-of-the-world-atlas.example/places/strait-of-magellan",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/strait-of-magellan",
       },
     ],
     scripts: [
@@ -180,14 +186,14 @@ function StraitOfMagellanPage() {
           <div className="border border-border bg-card p-8 lg:p-10">
             <div className="text-xs uppercase tracking-coord text-glacier">Related places</div>
             <div className="mt-6 grid sm:grid-cols-2 gap-px bg-border">
-              {relatedPlaceNames.map((name) => (
-                <div key={name} className="bg-card p-5">
-                  <div className="text-ice">{name}</div>
+              {relatedPlaces.map((relatedPlace) => (
+                <div key={relatedPlace.name} className="bg-card p-5">
+                  <div className="text-ice">{relatedPlace.name}</div>
                   <Link
-                    to="/places"
+                    to={relatedPlace.to}
                     className="mt-3 inline-flex text-[10px] uppercase tracking-coord text-glacier hover:text-ice"
                   >
-                    View in atlas places
+                    View place dossier
                   </Link>
                 </div>
               ))}

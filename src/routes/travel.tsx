@@ -1,114 +1,126 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
-import { Check, ExternalLink } from "lucide-react";
-import torres from "@/assets/torres-paine.jpg";
-import cape from "@/assets/cape-horn.jpg";
-import ant from "@/assets/antarctica.jpg";
+import { ArrowRight, Compass, MapPin, Radio } from "lucide-react";
 
 export const Route = createFileRoute("/travel")({
   head: () => ({
     meta: [
-      { title: "Travel — Guided Expeditions to the End of the World" },
-      { name: "description", content: "Limited-departure guided expeditions across Chilean Patagonia, Cape Horn and Chilean Antarctica — premium logistics, scientific guides, small groups." },
-      { property: "og:title", content: "Travel — Guided Expeditions" },
-      { property: "og:description", content: "Curated journeys to the Chilean austral frontier." },
-      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/travel" },
+      { title: "Field Access Notes - End of the World Atlas" },
+      {
+        name: "description",
+        content:
+          "A future editorial section for non-commercial field access notes, geographic context and public-route orientation within End of the World Atlas.",
+      },
+      { property: "og:title", content: "Field Access Notes - End of the World Atlas" },
+      {
+        property: "og:description",
+        content:
+          "A non-commercial placeholder for future atlas notes on access geography, public corridors and field context.",
+      },
+      {
+        property: "og:url",
+        content: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/travel",
+      },
     ],
     links: [
-      { rel: "canonical", href: "https://southern-uncharted-atlas.lovable.app/travel" },
+      {
+        rel: "canonical",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/travel",
+      },
     ],
   }),
-  component: TravelPage,
+  component: FieldAccessNotesPage,
 });
 
-const tiers = [
+const editorialNotes = [
   {
-    img: torres, code: "EXP-A", name: "Patagonia Granite",
-    price: "$ 4,200", duration: "9 days", group: "8 max",
-    inc: ["Torres del Paine W trek", "Glacier Grey navigation", "Lodge accommodations", "Naturalist guide"],
-    cta: "Reserve",
+    icon: MapPin,
+    label: "Public geography",
+    title: "Access as context",
+    body: "Future notes will describe roads, ports, channels and protected-landscape edges as geographic context, not as commercial itineraries.",
   },
   {
-    img: cape, code: "EXP-B", name: "Cape Horn Sail",
-    price: "$ 7,800", duration: "6 days", group: "6 max",
-    inc: ["Beagle Channel sailing yacht", "Cape Horn landing", "Lighthouse keeper visit", "All meals on board"],
-    featured: true,
-    cta: "Reserve",
+    icon: Compass,
+    label: "Cartographic method",
+    title: "Routes before recommendations",
+    body: "The section will privilege maps, place relationships, public infrastructure and source hierarchy over advice framed around consumption.",
   },
   {
-    img: ant, code: "EXP-C", name: "Antarctic Crossing",
-    price: "$ 12,400", duration: "12 days", group: "100 max",
-    inc: ["Drake Passage transit", "Zodiac landings", "Glaciologist lectures", "Polar parka included"],
-    cta: "Request slot",
+    icon: Radio,
+    label: "Maritime signals",
+    title: "Signals and constraints",
+    body: "Where relevant, the atlas will document beacons, crossings, weather exposure and navigation constraints in sober editorial language.",
   },
 ];
 
-const partners = [
-  { name: "Quark Expeditions", url: "#", note: "Antarctica" },
-  { name: "Aurora Expeditions", url: "#", note: "Polar voyages" },
-  { name: "Explora Lodges", url: "#", note: "Patagonia" },
-  { name: "Australis Cruises", url: "#", note: "Cape Horn" },
-];
-
-function TravelPage() {
+function FieldAccessNotesPage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
 
       <section className="pt-40 pb-20 max-w-[1600px] mx-auto px-6 lg:px-12">
-        <SectionHeading as="h1" eyebrow="Travel · Limited Departures" title="Guided expeditions to the southern frontier" description="Three signature journeys, conceived with glaciologists, sailors and former Antarctic crew." />
+        <SectionHeading
+          as="h1"
+          eyebrow="Field access"
+          title="Future editorial notes on southern access geography"
+          description="This unlinked route is reserved for future non-commercial notes about public corridors, maritime approaches, protected-landscape edges and the geographic conditions that shape field access in Chile's far south."
+        />
       </section>
 
-      <section className="pb-24 max-w-[1600px] mx-auto px-6 lg:px-12 grid lg:grid-cols-3 gap-6">
-        {tiers.map((t) => (
-          <article key={t.code} className={`relative flex flex-col border ${t.featured ? "border-glacier shadow-glow" : "border-border"} bg-card overflow-hidden`}>
-            {t.featured && (
-              <div className="absolute top-4 right-4 z-10 font-mono text-[9px] tracking-coord text-primary-foreground bg-glacier px-2 py-1 uppercase">Signature</div>
-            )}
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <img src={t.img} alt={t.name} loading="lazy" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-aurora" />
-              <div className="absolute bottom-4 left-4 font-mono text-[10px] tracking-coord text-ice/80 uppercase">{t.code}</div>
-            </div>
-            <div className="p-8 flex-1 flex flex-col">
-              <h3 className="font-display text-3xl text-ice">{t.name}</h3>
-              <div className="mt-2 flex gap-4 text-[10px] uppercase tracking-coord text-muted-foreground">
-                <span>{t.duration}</span><span>·</span><span>{t.group}</span>
-              </div>
-              <div className="mt-6 font-display text-4xl text-glacier">{t.price}<span className="text-sm text-muted-foreground"> / pax</span></div>
-
-              <ul className="mt-6 space-y-2.5 text-sm text-muted-foreground flex-1">
-                {t.inc.map((i) => (
-                  <li key={i} className="flex gap-2.5"><Check className="w-4 h-4 text-glacier shrink-0 mt-0.5" />{i}</li>
-                ))}
-              </ul>
-
-              <button className={`mt-8 w-full py-3.5 text-xs uppercase tracking-coord transition-colors ${t.featured ? "bg-glacier text-primary-foreground hover:bg-ice" : "border border-glacier/40 text-ice hover:bg-glacier/10"}`}>
-                {t.cta}
-              </button>
-            </div>
-          </article>
-        ))}
-      </section>
-
-      <section className="py-24 border-y border-border bg-card/20">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-          <SectionHeading eyebrow="Partner Operators · Affiliate" title="Vetted by us, booked through them" description="When a tier is fully booked, we partner with these operators and earn a small commission to support the atlas." />
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {partners.map((p) => (
-              <a key={p.name} href={p.url} className="group flex items-center justify-between p-6 border border-border hover:border-glacier/60 hover:bg-card transition-colors">
-                <div>
-                  <div className="font-display text-xl text-ice">{p.name}</div>
-                  <div className="text-[10px] uppercase tracking-coord text-muted-foreground mt-1">{p.note}</div>
-                </div>
-                <ExternalLink className="w-4 h-4 text-glacier group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            ))}
+      <section className="pb-32 max-w-[1600px] mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-px bg-border">
+          <aside className="bg-card p-8 lg:p-10">
+            <div className="text-xs uppercase tracking-coord text-glacier">Editorial status</div>
+            <p className="font-display text-3xl md:text-4xl text-ice mt-5 leading-[1.12] text-balance">
+              This section is reserved for source-based field context and public geography notes.
+            </p>
+          </aside>
+          <div className="bg-background p-8 lg:p-10">
+            <div className="text-xs uppercase tracking-coord text-glacier">Current use</div>
+            <p className="text-muted-foreground mt-5 leading-relaxed">
+              End of the World Atlas currently centers its public structure on places, route
+              dossiers, lighthouses and documentary cartography. Field access notes may be developed
+              later as source-based editorial context for understanding how southern geography is
+              reached, crossed and maintained.
+            </p>
           </div>
         </div>
       </section>
+
+      <section className="pb-32 max-w-[1600px] mx-auto px-6 lg:px-12">
+        <div className="grid md:grid-cols-3 gap-px bg-border">
+          {editorialNotes.map((note) => (
+            <article key={note.title} className="bg-card p-8 lg:p-10">
+              <note.icon className="w-5 h-5 text-glacier" />
+              <div className="text-[10px] uppercase tracking-coord text-glacier mt-6">
+                {note.label}
+              </div>
+              <h2 className="font-display text-2xl text-ice mt-2">{note.title}</h2>
+              <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{note.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="pb-32 max-w-[1600px] mx-auto px-6 lg:px-12">
+        <div className="flex flex-wrap gap-4">
+          <Link
+            to="/places"
+            className="inline-flex items-center gap-3 bg-ice text-primary-foreground px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier transition-colors"
+          >
+            Explore Places <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            to="/routes"
+            className="inline-flex items-center gap-3 border border-glacier/40 text-ice px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier/10"
+          >
+            Explore Routes
+          </Link>
+        </div>
+      </section>
+
       <SiteFooter />
     </div>
   );

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -11,12 +11,12 @@ if (!place) {
   throw new Error("Antarctic Threshold place data is missing.");
 }
 
-const relatedPlaceNames = [
-  "Cape Horn",
-  "Diego Ramirez Islands",
-  "Beagle Channel",
-  "Puerto Williams",
-];
+const relatedPlaces = [
+  { name: "Cape Horn", to: "/places/cape-horn" },
+  { name: "Diego Ramírez Islands", to: "/places/diego-ramirez-islands" },
+  { name: "Beagle Channel", to: "/places/beagle-channel" },
+  { name: "Puerto Williams", to: "/places/puerto-williams" },
+] as const;
 
 const contexts = [
   {
@@ -33,7 +33,7 @@ const contexts = [
   },
   {
     title: "Drake Passage Context",
-    body: "The Drake Passage gives this place record its strongest maritime frame. Cape Horn, the Diego Ramirez Islands and the waters beyond them form reference points before the map shifts from island-edge navigation into the broad passage between South America and Antarctica.",
+    body: "The Drake Passage gives this place record its strongest maritime frame. Cape Horn, the Diego Ramírez Islands and the waters beyond them form reference points before the map shifts from island-edge navigation into the broad passage between South America and Antarctica.",
   },
   {
     title: "Antarctic Access Context",
@@ -62,13 +62,14 @@ export const Route = createFileRoute("/places/antarctic-threshold")({
       },
       {
         property: "og:url",
-        content: "https://southern-uncharted-atlas.lovable.app/places/antarctic-threshold",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/antarctic-threshold",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://southern-uncharted-atlas.lovable.app/places/antarctic-threshold",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/antarctic-threshold",
       },
     ],
     scripts: [
@@ -190,14 +191,14 @@ function AntarcticThresholdPage() {
               Adjacent atlas places
             </div>
             <div className="mt-6 grid sm:grid-cols-2 gap-px bg-border">
-              {relatedPlaceNames.map((name) => (
-                <div key={name} className="bg-card p-5">
-                  <div className="text-ice">{name}</div>
+              {relatedPlaces.map((relatedPlace) => (
+                <div key={relatedPlace.name} className="bg-card p-5">
+                  <div className="text-ice">{relatedPlace.name}</div>
                   <Link
-                    to="/places"
+                    to={relatedPlace.to}
                     className="mt-3 inline-flex text-[10px] uppercase tracking-coord text-glacier hover:text-ice"
                   >
-                    View in atlas places
+                    View place dossier
                   </Link>
                 </div>
               ))}

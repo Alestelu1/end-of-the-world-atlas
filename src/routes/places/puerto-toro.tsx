@@ -59,13 +59,14 @@ export const Route = createFileRoute("/places/puerto-toro")({
       },
       {
         property: "og:url",
-        content: "https://end-of-the-world-atlas.example/places/puerto-toro",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/puerto-toro",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://end-of-the-world-atlas.example/places/puerto-toro",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/puerto-toro",
       },
     ],
     scripts: [
