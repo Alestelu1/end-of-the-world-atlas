@@ -24,6 +24,18 @@ export const atlasPlaces = [
     relatedRoutes: ["Puerto Williams & the Beagle Channel", "Cape Horn & the Antarctic Threshold"],
   },
   {
+    slug: "ruta-vicuna-yendegaia",
+    name: "Ruta Vicuña–Yendegaia",
+    region: "Tierra del Fuego interior",
+    category: "Infrastructure corridor",
+    coordinatesLabel: "Interior Tierra del Fuego corridor",
+    summary:
+      "A southern land corridor associated with the interior of Tierra del Fuego and the approach toward Yendegaia, read through terrain, access, watercourses and the edge of protected landscape.",
+    editorialAngle:
+      "Framed as infrastructure geography: a road trace where forest, valley, mountain margin and southern connectivity meet before the map turns toward Navarino Island and the Beagle Channel.",
+    relatedRoutes: ["Puerto Williams & the Beagle Channel", "Strait of Magellan Maritime Corridor"],
+  },
+  {
     slug: "cape-horn",
     name: "Cape Horn",
     region: "Hermite Islands",

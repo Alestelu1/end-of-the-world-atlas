@@ -13,6 +13,7 @@ const placePageRoutes = {
   "navarino-island": "/places/navarino-island",
   "puerto-williams": "/places/puerto-williams",
   "punta-arenas": "/places/punta-arenas",
+  "ruta-vicuna-yendegaia": "/places/ruta-vicuna-yendegaia",
   "strait-of-magellan": "/places/strait-of-magellan",
 } as const;
 
