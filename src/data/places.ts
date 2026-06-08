@@ -24,6 +24,18 @@ export const atlasPlaces = [
     relatedRoutes: ["Puerto Williams & the Beagle Channel", "Cape Horn & the Antarctic Threshold"],
   },
   {
+    slug: "puerto-toro",
+    name: "Puerto Toro",
+    region: "Eastern Navarino Island",
+    category: "Austral settlement",
+    coordinatesLabel: "55.1 S, 67.1 W",
+    summary:
+      "A small settlement on the eastern side of Navarino Island, positioned near sheltered southern channels and the maritime geography leading toward Cape Horn.",
+    editorialAngle:
+      "Read as a quiet edge settlement: shoreline, harbor reference, island interior and the outer archipelago arranged before the Cape Horn maritime field.",
+    relatedRoutes: ["Puerto Williams & the Beagle Channel", "Cape Horn & the Antarctic Threshold"],
+  },
+  {
     slug: "ruta-vicuna-yendegaia",
     name: "Ruta Vicuña–Yendegaia",
     region: "Tierra del Fuego interior",

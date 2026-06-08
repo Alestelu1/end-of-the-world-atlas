@@ -21,6 +21,7 @@ import { Route as PlacesStraitOfMagellanRouteImport } from './routes/places/stra
 import { Route as PlacesRutaVicunaYendegaiaRouteImport } from './routes/places/ruta-vicuna-yendegaia'
 import { Route as PlacesPuntaArenasRouteImport } from './routes/places/punta-arenas'
 import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
+import { Route as PlacesPuertoToroRouteImport } from './routes/places/puerto-toro'
 import { Route as PlacesNavarinoIslandRouteImport } from './routes/places/navarino-island'
 import { Route as PlacesDiegoRamirezIslandsRouteImport } from './routes/places/diego-ramirez-islands'
 import { Route as PlacesCapeHornRouteImport } from './routes/places/cape-horn'
@@ -88,6 +89,11 @@ const PlacesPuertoWilliamsRoute = PlacesPuertoWilliamsRouteImport.update({
   path: '/puerto-williams',
   getParentRoute: () => PlacesRoute,
 } as any)
+const PlacesPuertoToroRoute = PlacesPuertoToroRouteImport.update({
+  id: '/puerto-toro',
+  path: '/puerto-toro',
+  getParentRoute: () => PlacesRoute,
+} as any)
 const PlacesNavarinoIslandRoute = PlacesNavarinoIslandRouteImport.update({
   id: '/navarino-island',
   path: '/navarino-island',
@@ -130,6 +136,7 @@ export interface FileRoutesByFullPath {
   '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
+  '/places/puerto-toro': typeof PlacesPuertoToroRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
   '/places/ruta-vicuna-yendegaia': typeof PlacesRutaVicunaYendegaiaRoute
@@ -149,6 +156,7 @@ export interface FileRoutesByTo {
   '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
+  '/places/puerto-toro': typeof PlacesPuertoToroRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
   '/places/ruta-vicuna-yendegaia': typeof PlacesRutaVicunaYendegaiaRoute
@@ -169,6 +177,7 @@ export interface FileRoutesById {
   '/places/cape-horn': typeof PlacesCapeHornRoute
   '/places/diego-ramirez-islands': typeof PlacesDiegoRamirezIslandsRoute
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
+  '/places/puerto-toro': typeof PlacesPuertoToroRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
   '/places/ruta-vicuna-yendegaia': typeof PlacesRutaVicunaYendegaiaRoute
@@ -190,6 +199,7 @@ export interface FileRouteTypes {
     | '/places/cape-horn'
     | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
+    | '/places/puerto-toro'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
     | '/places/ruta-vicuna-yendegaia'
@@ -209,6 +219,7 @@ export interface FileRouteTypes {
     | '/places/cape-horn'
     | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
+    | '/places/puerto-toro'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
     | '/places/ruta-vicuna-yendegaia'
@@ -228,6 +239,7 @@ export interface FileRouteTypes {
     | '/places/cape-horn'
     | '/places/diego-ramirez-islands'
     | '/places/navarino-island'
+    | '/places/puerto-toro'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
     | '/places/ruta-vicuna-yendegaia'
@@ -331,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlacesPuertoWilliamsRouteImport
       parentRoute: typeof PlacesRoute
     }
+    '/places/puerto-toro': {
+      id: '/places/puerto-toro'
+      path: '/puerto-toro'
+      fullPath: '/places/puerto-toro'
+      preLoaderRoute: typeof PlacesPuertoToroRouteImport
+      parentRoute: typeof PlacesRoute
+    }
     '/places/navarino-island': {
       id: '/places/navarino-island'
       path: '/navarino-island'
@@ -375,6 +394,7 @@ interface PlacesRouteChildren {
   PlacesCapeHornRoute: typeof PlacesCapeHornRoute
   PlacesDiegoRamirezIslandsRoute: typeof PlacesDiegoRamirezIslandsRoute
   PlacesNavarinoIslandRoute: typeof PlacesNavarinoIslandRoute
+  PlacesPuertoToroRoute: typeof PlacesPuertoToroRoute
   PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
   PlacesPuntaArenasRoute: typeof PlacesPuntaArenasRoute
   PlacesRutaVicunaYendegaiaRoute: typeof PlacesRutaVicunaYendegaiaRoute
@@ -387,6 +407,7 @@ const PlacesRouteChildren: PlacesRouteChildren = {
   PlacesCapeHornRoute: PlacesCapeHornRoute,
   PlacesDiegoRamirezIslandsRoute: PlacesDiegoRamirezIslandsRoute,
   PlacesNavarinoIslandRoute: PlacesNavarinoIslandRoute,
+  PlacesPuertoToroRoute: PlacesPuertoToroRoute,
   PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
   PlacesPuntaArenasRoute: PlacesPuntaArenasRoute,
   PlacesRutaVicunaYendegaiaRoute: PlacesRutaVicunaYendegaiaRoute,
