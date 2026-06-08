@@ -1,25 +1,109 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
-import { DestinationCard } from "@/components/destination-card";
-import { SceneMap } from "@/components/scene-map";
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, Compass, Mountain, Anchor, Snowflake, Lock, KeyRound, Ship, Map as MapIcon } from "lucide-react";
+import { atlasPlaces } from "@/data/places";
+import { southernRoutes } from "@/data/routes";
+import {
+  Anchor,
+  ArrowRight,
+  Compass,
+  Map as MapIcon,
+  Mountain,
+  Radio,
+  Snowflake,
+  Waves,
+} from "lucide-react";
 import hero from "@/assets/hero-patagonia.jpg";
 import torres from "@/assets/torres-paine.jpg";
 import tdf from "@/assets/tierra-fuego.jpg";
 import cape from "@/assets/cape-horn.jpg";
 import ant from "@/assets/antarctica.jpg";
 
+const featuredPlaceSlugs = [
+  "puerto-williams",
+  "cape-horn",
+  "beagle-channel",
+  "navarino-island",
+  "diego-ramirez-islands",
+  "punta-arenas",
+  "antarctic-threshold",
+];
+
+const placePageRoutes = {
+  "antarctic-threshold": "/places/antarctic-threshold",
+  "beagle-channel": "/places/beagle-channel",
+  "cape-horn": "/places/cape-horn",
+  "diego-ramirez-islands": "/places/diego-ramirez-islands",
+  "navarino-island": "/places/navarino-island",
+  "puerto-williams": "/places/puerto-williams",
+  "punta-arenas": "/places/punta-arenas",
+} as const;
+
+const placeDisplayNames: Record<string, string> = {
+  "diego-ramirez-islands": "Diego Ramírez Islands",
+};
+
+const placeImages: Record<string, string> = {
+  "antarctic-threshold": ant,
+  "beagle-channel": tdf,
+  "cape-horn": cape,
+  "diego-ramirez-islands": cape,
+  "navarino-island": tdf,
+  "puerto-williams": hero,
+  "punta-arenas": torres,
+};
+
+const featuredPlaces = featuredPlaceSlugs
+  .map((slug) => atlasPlaces.find((place) => place.slug === slug))
+  .filter((place): place is (typeof atlasPlaces)[number] => Boolean(place));
+
+const atlasSignals = [
+  {
+    icon: MapIcon,
+    label: "Places",
+    title: "Ports, capes, islands and channels",
+    body: "The places index anchors the atlas in named geographies: settlements, island groups, maritime corridors and threshold waters.",
+  },
+  {
+    icon: Compass,
+    label: "Southern Routes",
+    title: "Maritime corridors as dossiers",
+    body: "Route pages read the southern map through channels, beacons, lighthouses, narrows and open-water transitions.",
+  },
+  {
+    icon: Anchor,
+    label: "Navigation",
+    title: "Harbors, lights and passages",
+    body: "The project follows the logic of navigation through documented geography, signals and route context.",
+  },
+  {
+    icon: Snowflake,
+    label: "Threshold",
+    title: "Before Antarctic geography",
+    body: "Cape Horn, the Diego Ramírez Islands and the Drake Passage approaches form the atlas edge before polar waters dominate the chart.",
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "End of the World Atlas — Patagonia, Cape Horn & Antarctica" },
-      { name: "description", content: "A cinematic atlas of Chilean Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica — maps, expedition routes and lighthouse archives from the last frontier." },
-      { property: "og:title", content: "End of the World Atlas — Patagonia, Cape Horn & Antarctica" },
-      { property: "og:description", content: "A cinematic atlas of Chilean Patagonia, Tierra del Fuego, Cape Horn and Chilean Antarctica." },
-      { property: "og:url", content: "https://southern-uncharted-atlas.lovable.app/" },
+      { title: "End of the World Atlas - Documentary Cartography of Chile's Far South" },
+      {
+        name: "description",
+        content:
+          "A documentary and cartographic atlas of Chile's far south, from Punta Arenas and Puerto Williams to Cape Horn, the Beagle Channel and the Antarctic threshold.",
+      },
+      {
+        property: "og:title",
+        content: "End of the World Atlas - Documentary Cartography of Chile's Far South",
+      },
+      {
+        property: "og:description",
+        content:
+          "Places, southern routes, channels, lighthouses and Antarctic threshold geographies from the southern edge of Chile.",
+      },
+      { property: "og:url", content: "https://end-of-the-world-atlas.example/" },
     ],
   }),
   component: Home,
@@ -30,277 +114,316 @@ function Home() {
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* HERO */}
       <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
         <img
           src={hero}
-          alt="Aerial view of Patagonian glaciers at golden hour"
+          alt="Aerial view of Patagonian glaciers"
           width={1920}
           height={1080}
           className="absolute inset-0 w-full h-full object-cover float-in"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/30 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/75 via-background/35 to-background" />
         <div className="absolute inset-0 grain" />
 
         <div className="relative h-full max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col justify-end pb-20 lg:pb-32">
           <div className="reveal flex items-center gap-3 text-xs uppercase tracking-coord text-glacier">
             <span className="h-px w-10 bg-glacier" />
-            56°S — Patagonia · Tierra del Fuego · Antártica
+            Documentary atlas - Patagonia - Tierra del Fuego - Antarctic threshold
           </div>
           <h1 className="reveal-slow font-display text-[clamp(3rem,9vw,9rem)] leading-[0.9] text-ice mt-6 max-w-5xl text-balance">
-            Where the maps<br />
-            <em className="text-glacier not-italic font-light italic">end</em>, the world begins.
+            End of the
+            <br />
+            <em className="text-glacier not-italic font-light italic">World Atlas</em>
           </h1>
-          <p className="reveal-slow mt-8 max-w-xl text-base md:text-lg text-silver leading-relaxed">
-            From Puerto Williams — the southernmost city on Earth — across Navarino Island,
-            the Cape Horn archipelago and the Chilean Antarctic projection. Mapping the austral
-            frontier through geography, navigation and southern memory.
+          <p className="reveal-slow mt-8 max-w-2xl text-base md:text-lg text-silver leading-relaxed">
+            A documentary and cartographic reading of Chile's far south: ports, channels, capes,
+            islands, lighthouses, southern routes and the threshold geographies before Antarctica.
           </p>
 
           <div className="reveal-slow mt-10 flex flex-wrap gap-4">
             <Link
-              to="/atlas"
+              to="/places"
               className="group inline-flex items-center gap-3 bg-ice text-primary-foreground px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier transition-colors"
             >
-              Open the Atlas
+              Explore Places
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/routes"
               className="inline-flex items-center gap-3 border border-glacier/40 text-ice px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier/10"
             >
-              Expedition Routes
+              Explore Routes
             </Link>
           </div>
         </div>
 
-        {/* coordinate ticker */}
         <div className="absolute bottom-0 left-0 right-0 border-t border-glacier/20 backdrop-blur-sm bg-background/30">
           <div className="max-w-[1600px] mx-auto px-6 lg:px-12 py-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-coord text-glacier/80">
-            <span>Lat 54°48′S</span>
-            <span className="hidden md:inline">Bearing 196°</span>
-            <span className="hidden md:inline">Wind 47kt SW</span>
-            <span>Lon 68°18′W</span>
+            <span>Puerto Williams</span>
+            <span className="hidden md:inline">Beagle Channel</span>
+            <span className="hidden md:inline">Cape Horn</span>
+            <span>Antarctic Threshold</span>
           </div>
         </div>
       </section>
 
-      {/* PROLOGUE */}
       <section className="py-32 lg:py-48 max-w-[1600px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <div className="text-xs uppercase tracking-coord text-glacier">Chapter 01 · Prologue</div>
+            <div className="text-xs uppercase tracking-coord text-glacier">
+              Editorial orientation
+            </div>
           </div>
           <div className="lg:col-span-8">
             <p className="font-display text-3xl md:text-5xl text-ice leading-[1.15] text-balance">
-              Beyond the 50th parallel, the continents narrow into a labyrinth of fjords,
-              ice and silence. <span className="text-muted-foreground">This is the geography
-              of the end — and the beginning of everything that lies south.</span>
+              The atlas follows geography before narrative:{" "}
+              <span className="text-muted-foreground">
+                shoreline, channel, cape, beacon, island, port and open southern water.
+              </span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* PILLARS */}
       <section className="border-y border-border bg-card/30">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
-          {[
-            { icon: Compass, k: "01", t: "Cartography", d: "Hand-drawn vector maps of the southern archipelagos." },
-            { icon: Mountain, k: "02", t: "Geology", d: "Granite, ice and the Andes' last vertebrae." },
-            { icon: Anchor, k: "03", t: "Lighthouses", d: "Sentinels of the Drake Passage." },
-            { icon: Snowflake, k: "04", t: "Antarctica", d: "Crossing the white continent's gateway." },
-          ].map((p) => (
-            <div key={p.k} className="p-8 lg:p-10">
-              <p.icon className="w-6 h-6 text-glacier" />
-              <div className="font-mono text-[10px] tracking-coord text-muted-foreground mt-6">№ {p.k}</div>
-              <h2 className="font-display text-2xl text-ice mt-2">{p.t}</h2>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{p.d}</p>
+          {atlasSignals.map((signal) => (
+            <div key={signal.label} className="p-8 lg:p-10">
+              <signal.icon className="w-6 h-6 text-glacier" />
+              <div className="font-mono text-[10px] tracking-coord text-muted-foreground mt-6 uppercase">
+                {signal.label}
+              </div>
+              <h2 className="font-display text-2xl text-ice mt-2">{signal.title}</h2>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{signal.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* DESTINATIONS — Chilean geographic core */}
       <section className="py-32 max-w-[1600px] mx-auto px-6 lg:px-12">
         <div className="flex items-end justify-between flex-wrap gap-8 mb-16">
           <SectionHeading
-            eyebrow="The Chilean South"
-            title="Six coordinates that define the end of the continent"
-            description="From the Strait of Magellan to the Diego Ramírez archipelago and the Chilean Antarctic Territory."
+            eyebrow="Places"
+            title="Atlas places at the southern edge"
+            description="Seven place dossiers organize the current atlas: Puerto Williams, Cape Horn, the Beagle Channel, Navarino Island, the Diego Ramírez Islands, Punta Arenas and the Antarctic Threshold."
           />
-          <Link to="/atlas" className="text-xs uppercase tracking-coord text-glacier hover:text-ice flex items-center gap-2">
-            View full atlas <ArrowRight className="w-4 h-4" />
+          <Link
+            to="/places"
+            className="text-xs uppercase tracking-coord text-glacier hover:text-ice flex items-center gap-2"
+          >
+            Explore Places <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <DestinationCard index="01" image={torres} title="Punta Arenas" region="Magallanes · Chile" coord="53°10′S 70°55′W" blurb="The southern continental capital — gateway to every Antarctic and Patagonian expedition since 1848." />
-          <DestinationCard index="02" image={hero} title="Strait of Magellan" region="Estrecho de Magallanes" coord="53°30′S 70°30′W" blurb="The 570 km marine corridor first traversed in 1520, threading three oceans through Chilean fjordland." />
-          <DestinationCard index="03" image={tdf} title="Puerto Williams" region="Isla Navarino · Chile" coord="54°56′S 67°37′W" blurb="Officially the southernmost town on Earth, on the Beagle Channel — base of the Chilean Antarctic Naval Squadron." />
-          <DestinationCard index="04" image={cape} title="Cape Horn" region="Cabo de Hornos · Chile" coord="55°59′S 67°16′W" blurb="The mythic southern cape of the Americas, where the Atlantic and Pacific meet in perpetual storm." />
-          <DestinationCard index="05" image={cape} title="Diego Ramírez" region="Subantarctic · Chile" coord="56°31′S 68°43′W" blurb="The true southernmost land of South America — a wind-scoured archipelago 100 km SW of Cape Horn." />
-          <DestinationCard index="06" image={ant} title="Chilean Antarctic Territory" region="Antártica Chilena" coord="60°S → 90°S · 53°W → 90°W" blurb="1.25 million km² of ice claimed by Chile in 1940 — Bases Frei, O'Higgins and Prat across the peninsula." />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {featuredPlaces.map((place, index) => {
+            const placeRoute = placePageRoutes[place.slug as keyof typeof placePageRoutes];
+            const displayName = placeDisplayNames[place.slug] ?? place.name;
+
+            return (
+              <article
+                key={place.slug}
+                className="group border border-border bg-card hover:border-glacier/60 transition-colors overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={placeImages[place.slug] ?? hero}
+                    alt={displayName}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                  <div className="absolute top-4 left-4 font-mono text-[10px] tracking-coord text-ice/80 uppercase">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="text-[10px] uppercase tracking-coord text-glacier">
+                    {place.category}
+                  </div>
+                  <h3 className="font-display text-2xl text-ice mt-2">{displayName}</h3>
+                  <div className="font-mono text-[10px] tracking-coord text-muted-foreground mt-2 uppercase">
+                    {place.coordinatesLabel}
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-5 leading-relaxed">
+                    {place.summary}
+                  </p>
+                  <Link
+                    to={placeRoute}
+                    className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-coord text-glacier hover:text-ice"
+                  >
+                    Read place dossier <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      {/* INTERACTIVE EXPEDITION ATLAS */}
-      <section id="map" className="py-32 bg-card/20 border-y border-border">
+      <section className="py-32 bg-card/20 border-y border-border">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-          <SectionHeading
-            eyebrow="Interactive Expedition Atlas · 1:8M"
-            title="Punta Arenas → Magallanes → Puerto Williams → Cape Horn → Diego Ramírez → Antártica"
-            description="An expedition cartography of the Chilean south. Tap any waypoint for coordinates, region and field notes."
-          />
-          <div className="mt-16">
-            <SceneMap />
+          <div className="flex items-end justify-between flex-wrap gap-8 mb-16">
+            <SectionHeading
+              eyebrow="Southern Routes"
+              title="Maritime corridors and threshold routes"
+              description="Southern Routes presents the atlas as navigational geography: straits, channels, capes, beacons and open-water approaches."
+            />
+            <Link
+              to="/routes"
+              className="text-xs uppercase tracking-coord text-glacier hover:text-ice flex items-center gap-2"
+            >
+              Explore Routes <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {southernRoutes.map((route) => (
+              <article
+                key={route.code}
+                className="group flex flex-col border border-border bg-background hover:border-glacier/60 transition-colors overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={route.img}
+                    alt={route.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute top-4 left-4 font-mono text-[10px] tracking-coord text-ice/80 uppercase">
+                    {route.code}
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="font-display text-2xl text-ice">{route.name}</h3>
+                  <div className="mt-4 grid grid-cols-2 gap-px bg-border text-[10px] uppercase tracking-coord">
+                    <div className="bg-background p-3 text-muted-foreground">
+                      <div className="text-glacier">Reach</div>
+                      <div className="mt-1">{route.reach}</div>
+                    </div>
+                    <div className="bg-background p-3 text-muted-foreground">
+                      <div className="text-glacier">Signal</div>
+                      <div className="mt-1">{route.signal}</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-5 leading-relaxed">{route.desc}</p>
+                  <Link
+                    to="/routes"
+                    className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-coord text-glacier hover:text-ice"
+                  >
+                    Read route dossier <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PREMIUM ROUTE GUIDES */}
-      <section className="py-32 max-w-[1600px] mx-auto px-6 lg:px-12">
-        <div className="flex items-end justify-between flex-wrap gap-8 mb-16">
-          <SectionHeading
-            eyebrow="Premium Route Guides"
-            title="GPX tracks, weather windows, lighthouse waypoints"
-            description="Field-grade itineraries authored with Chilean naval pilots, glaciologists and Cape Horn skippers."
-          />
-          <Link to="/routes" className="text-xs uppercase tracking-coord text-glacier hover:text-ice flex items-center gap-2">
-            All route guides <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { code: "RT-01", img: torres, name: "Paine Circuit", spec: "9 days · 128 km · +4,200 m", price: "$ 24" },
-            { code: "RT-02", img: cape, name: "Beagle → Cape Horn → Diego Ramírez", spec: "6 days · 540 nm · sail", price: "$ 32" },
-            { code: "RT-03", img: ant, name: "Drake Passage & Antártica Crossing", spec: "12 days · 1,800 nm", price: "$ 48" },
-          ].map((r) => (
-            <article key={r.code} className="group flex flex-col border border-border bg-card hover:border-glacier/60 transition-colors overflow-hidden">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={r.img} alt={r.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-                <div className="absolute top-4 left-4 font-mono text-[10px] tracking-coord text-ice/80 uppercase">{r.code}</div>
-              </div>
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-display text-2xl text-ice">{r.name}</h3>
-                <div className="font-mono text-[10px] tracking-coord text-muted-foreground mt-2 uppercase">{r.spec}</div>
-                <div className="mt-6 flex items-center justify-between pt-6 hairline">
-                  <span className="text-xs uppercase tracking-coord text-glacier inline-flex items-center gap-2"><Lock className="w-3.5 h-3.5" /> Unlock {r.price}</span>
-                  <Link to="/routes" className="text-xs uppercase tracking-coord text-ice inline-flex items-center gap-1.5">View <ArrowRight className="w-3.5 h-3.5" /></Link>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* STORYTELLING */}
-      <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
-        <img src={ant} alt="Antarctic icebergs" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+      <section className="relative h-[78vh] min-h-[580px] overflow-hidden">
+        <img
+          src={ant}
+          alt="Antarctic ice and southern ocean water"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
         <div className="relative h-full max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center">
           <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-coord text-glacier">Chapter 04 · Antártica Chilena</div>
+            <div className="text-xs uppercase tracking-coord text-glacier">Antarctic Threshold</div>
             <h2 className="font-display text-5xl md:text-7xl mt-5 text-ice text-balance leading-[1.05]">
-              <em className="font-light italic">A continent</em> of ice, mapped by silence.
+              Where channel geography opens into polar water.
             </h2>
             <p className="mt-6 text-lg text-silver/80 leading-relaxed">
-              The Chilean Antarctic Territory spans 1,250,000 km² of frozen latitudes from the
-              53rd to the 90th meridian west — bases Frei, O'Higgins, Prat, and the slow theatre
-              of breaking glaciers.
+              The southern atlas does not end at a single cape. It thins through Navarino Island,
+              the Beagle Channel, Cape Horn, the Diego Ramírez Islands and the open approaches of
+              the Drake Passage.
             </p>
-            <Link to="/atlas" className="mt-10 inline-flex items-center gap-2 text-xs uppercase tracking-coord text-glacier hover:text-ice">
-              Read the white chapter <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                to="/places"
+                className="inline-flex items-center gap-3 bg-ice text-primary-foreground px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier transition-colors"
+              >
+                Explore Places <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/routes"
+                className="inline-flex items-center gap-3 border border-glacier/40 text-ice px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier/10"
+              >
+                Explore Routes
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* MEMBERS ACCESS */}
       <section className="py-32 border-y border-border bg-card/30">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12 grid lg:grid-cols-[0.85fr_1.15fr] gap-16 items-start">
           <div>
-            <div className="text-xs uppercase tracking-coord text-glacier inline-flex items-center gap-2"><KeyRound className="w-3.5 h-3.5" /> Members · Atlas Society</div>
-            <h2 className="font-display text-5xl md:text-6xl mt-5 text-ice text-balance leading-[1.05]">
-              Join the <em className="font-light italic text-glacier">Society of the 56th Parallel</em>.
-            </h2>
-            <p className="mt-6 text-base text-muted-foreground leading-relaxed max-w-xl">
-              Members unlock the full premium route library, downloadable GPX/KML files,
-              quarterly print dispatches from the Chilean south, and priority access on
-              limited expedition departures.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/travel" className="inline-flex items-center gap-3 bg-ice text-primary-foreground px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier transition-colors">
-                Become a member · $ 12 / mo <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link to="/about" className="inline-flex items-center gap-3 border border-glacier/40 text-ice px-6 py-4 text-xs uppercase tracking-coord hover:bg-glacier/10">
-                Member benefits
-              </Link>
-            </div>
+            <SectionHeading
+              eyebrow="Current atlas structure"
+              title="A documentary system of places, routes and maritime signals"
+              description="The homepage now points into the atlas itself: the places index, the southern route dossiers and the geographic vocabulary that connects them."
+            />
           </div>
           <ul className="grid sm:grid-cols-2 gap-px bg-border">
             {[
-              { i: MapIcon, t: "Full route library", d: "All RT-XX premium guides, GPX/KML included." },
-              { i: Anchor, t: "Lighthouse archive", d: "Charts of every operating sentinel south of 50°S." },
-              { i: Ship, t: "Departure priority", d: "First access to Cape Horn and Antarctic slots." },
-              { i: Compass, t: "Quarterly dispatch", d: "Printed field journal mailed worldwide." },
-            ].map((b) => (
-              <li key={b.t} className="bg-card p-8">
-                <b.i className="w-5 h-5 text-glacier" />
-                <div className="font-display text-xl text-ice mt-5">{b.t}</div>
-                <div className="text-sm text-muted-foreground mt-2 leading-relaxed">{b.d}</div>
+              {
+                icon: Mountain,
+                title: "Puerto Williams and Navarino",
+                body: "Harbor, island, channel edge and southern Fuegian geography.",
+              },
+              {
+                icon: Waves,
+                title: "Beagle Channel",
+                body: "A navigational line of shore, beacon, inlet and passage.",
+              },
+              {
+                icon: Radio,
+                title: "Cape Horn and Diego Ramírez",
+                body: "Cape, lighthouse reference, oceanic outliers and open southern water.",
+              },
+              {
+                icon: Anchor,
+                title: "Punta Arenas and Southern Routes",
+                body: "Strait settlement, maritime corridor and continental-edge infrastructure.",
+              },
+            ].map((item) => (
+              <li key={item.title} className="bg-card p-8">
+                <item.icon className="w-5 h-5 text-glacier" />
+                <div className="font-display text-xl text-ice mt-5">{item.title}</div>
+                <div className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                  {item.body}
+                </div>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* FEATURED TRAVEL PARTNERS */}
-      <section className="py-24 max-w-[1600px] mx-auto px-6 lg:px-12">
-        <SectionHeading
-          eyebrow="Featured Travel Partners · Affiliate"
-          title="Operators we trust at the end of the world"
-          description="Vetted Chilean and polar operators. Bookings through these partners support the atlas."
-        />
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
-            { n: "Australis Cruises", note: "Cape Horn · Tierra del Fuego" },
-            { n: "Antarctica21", note: "Punta Arenas → Antártica · air-cruise" },
-            { n: "Explora Patagonia", note: "Torres del Paine lodges" },
-            { n: "Sim Expeditions", note: "Cape Horn sailing yachts" },
-          ].map((p) => (
-            <a key={p.n} href="#" className="group flex items-center justify-between p-6 border border-border hover:border-glacier/60 hover:bg-card transition-colors">
-              <div>
-                <div className="font-display text-xl text-ice">{p.n}</div>
-                <div className="text-[10px] uppercase tracking-coord text-muted-foreground mt-1">{p.note}</div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-glacier group-hover:translate-x-1 transition-transform" />
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* BOOKING CTA */}
       <section className="relative py-32 border-t border-border overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-card/40 to-background" />
         <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 text-center">
           <SectionHeading
             align="center"
-            eyebrow="Book an Expedition · Limited 2026 Departures"
-            title="Cross the latitude where the world thins out"
-            description="Curated journeys led by Chilean glaciologists, lighthouse keepers and former Antarctic naval crew."
+            eyebrow="Begin with the atlas"
+            title="Read the southern map through places and routes"
+            description="Start with the place index, then follow the maritime corridors that connect ports, channels, lighthouses, capes and Antarctic threshold geography."
           />
           <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <Link to="/travel" className="inline-flex items-center gap-3 bg-glacier text-primary-foreground px-8 py-4 text-xs uppercase tracking-coord hover:bg-ice transition-colors">
-              <Ship className="w-4 h-4" /> Book an expedition <ArrowRight className="w-4 h-4" />
+            <Link
+              to="/places"
+              className="inline-flex items-center gap-3 bg-glacier text-primary-foreground px-8 py-4 text-xs uppercase tracking-coord hover:bg-ice transition-colors"
+            >
+              Explore Places <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/routes" className="inline-flex items-center gap-3 border border-glacier/40 text-ice px-8 py-4 text-xs uppercase tracking-coord hover:bg-glacier/10">
-              Browse route guides
+            <Link
+              to="/routes"
+              className="inline-flex items-center gap-3 border border-glacier/40 text-ice px-8 py-4 text-xs uppercase tracking-coord hover:bg-glacier/10"
+            >
+              Explore Routes
             </Link>
-          </div>
-          <div className="mt-10 font-mono text-[10px] tracking-coord text-muted-foreground uppercase">
-            Departures · Punta Arenas · Puerto Williams · Cabo de Hornos
           </div>
         </div>
       </section>
