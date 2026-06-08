@@ -208,7 +208,7 @@ function Home() {
           <SectionHeading
             eyebrow="Places"
             title="Atlas places at the southern edge"
-            description="Seven place dossiers organize the current atlas: Puerto Williams, Cape Horn, the Beagle Channel, Navarino Island, the Diego RamÃ­rez Islands, Punta Arenas and the Antarctic Threshold."
+            description="A growing collection of place dossiers organizes the current atlas: ports, channels, capes, islands, corridors and threshold geographies across Chile's far south."
           />
           <Link
             to="/places"
@@ -315,7 +315,7 @@ function Home() {
                     to="/routes"
                     className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-coord text-glacier hover:text-ice"
                   >
-                    Read route dossier <ArrowRight className="w-4 h-4" />
+                    Explore route dossiers <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </article>

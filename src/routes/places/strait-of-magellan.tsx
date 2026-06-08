@@ -11,7 +11,12 @@ if (!place) {
   throw new Error("Strait of Magellan place data is missing.");
 }
 
-const relatedPlaceNames = ["Punta Arenas", "Beagle Channel", "Puerto Williams", "Cape Horn"];
+const relatedPlaces = [
+  { name: "Punta Arenas", to: "/places/punta-arenas" },
+  { name: "Beagle Channel", to: "/places/beagle-channel" },
+  { name: "Puerto Williams", to: "/places/puerto-williams" },
+  { name: "Cape Horn", to: "/places/cape-horn" },
+] as const;
 
 const contexts = [
   {
@@ -181,14 +186,14 @@ function StraitOfMagellanPage() {
           <div className="border border-border bg-card p-8 lg:p-10">
             <div className="text-xs uppercase tracking-coord text-glacier">Related places</div>
             <div className="mt-6 grid sm:grid-cols-2 gap-px bg-border">
-              {relatedPlaceNames.map((name) => (
-                <div key={name} className="bg-card p-5">
-                  <div className="text-ice">{name}</div>
+              {relatedPlaces.map((relatedPlace) => (
+                <div key={relatedPlace.name} className="bg-card p-5">
+                  <div className="text-ice">{relatedPlace.name}</div>
                   <Link
-                    to="/places"
+                    to={relatedPlace.to}
                     className="mt-3 inline-flex text-[10px] uppercase tracking-coord text-glacier hover:text-ice"
                   >
-                    View in atlas places
+                    View place dossier
                   </Link>
                 </div>
               ))}

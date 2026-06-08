@@ -8,7 +8,7 @@ import { Compass, MapPin, Route as RouteIcon } from "lucide-react";
 const place = atlasPlaces.find((item) => item.slug === "ruta-vicuna-yendegaia");
 
 if (!place) {
-  throw new Error("Ruta Vicuna-Yendegaia place data is missing.");
+  throw new Error("Ruta Vicuña–Yendegaia place data is missing.");
 }
 
 const relatedPlaces = [

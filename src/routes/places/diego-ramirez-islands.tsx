@@ -12,7 +12,12 @@ if (!place) {
 }
 
 const placeName = place.name;
-const relatedPlaceNames = ["Cape Horn", "Navarino Island", "Beagle Channel", "Antarctic Threshold"];
+const relatedPlaces = [
+  { name: "Cape Horn", to: "/places/cape-horn" },
+  { name: "Navarino Island", to: "/places/navarino-island" },
+  { name: "Beagle Channel", to: "/places/beagle-channel" },
+  { name: "Antarctic Threshold", to: "/places/antarctic-threshold" },
+] as const;
 
 const contexts = [
   {
@@ -183,14 +188,14 @@ function DiegoRamirezIslandsPage() {
               Adjacent atlas places
             </div>
             <div className="mt-6 grid sm:grid-cols-2 gap-px bg-border">
-              {relatedPlaceNames.map((name) => (
-                <div key={name} className="bg-card p-5">
-                  <div className="text-ice">{name}</div>
+              {relatedPlaces.map((relatedPlace) => (
+                <div key={relatedPlace.name} className="bg-card p-5">
+                  <div className="text-ice">{relatedPlace.name}</div>
                   <Link
-                    to="/places"
+                    to={relatedPlace.to}
                     className="mt-3 inline-flex text-[10px] uppercase tracking-coord text-glacier hover:text-ice"
                   >
-                    View in atlas places
+                    View place dossier
                   </Link>
                 </div>
               ))}

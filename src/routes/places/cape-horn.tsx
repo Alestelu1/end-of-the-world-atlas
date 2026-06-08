@@ -11,12 +11,12 @@ if (!place) {
   throw new Error("Cape Horn place data is missing.");
 }
 
-const relatedPlaceNames = [
-  "Puerto Williams",
-  "Navarino Island",
-  "Diego RamÃ­rez Islands",
-  "Antarctic Threshold",
-];
+const relatedPlaces = [
+  { name: "Puerto Williams", to: "/places/puerto-williams" },
+  { name: "Navarino Island", to: "/places/navarino-island" },
+  { name: "Diego Ramírez Islands", to: "/places/diego-ramirez-islands" },
+  { name: "Antarctic Threshold", to: "/places/antarctic-threshold" },
+] as const;
 
 const contexts = [
   {
@@ -182,14 +182,14 @@ function CapeHornPage() {
               Adjacent atlas places
             </div>
             <div className="mt-6 grid sm:grid-cols-2 gap-px bg-border">
-              {relatedPlaceNames.map((name) => (
-                <div key={name} className="bg-card p-5">
-                  <div className="text-ice">{name}</div>
+              {relatedPlaces.map((relatedPlace) => (
+                <div key={relatedPlace.name} className="bg-card p-5">
+                  <div className="text-ice">{relatedPlace.name}</div>
                   <Link
-                    to="/places"
+                    to={relatedPlace.to}
                     className="mt-3 inline-flex text-[10px] uppercase tracking-coord text-glacier hover:text-ice"
                   >
-                    View in atlas places
+                    View place dossier
                   </Link>
                 </div>
               ))}

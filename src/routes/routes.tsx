@@ -123,7 +123,7 @@ function RoutesPage() {
                   to="/atlas"
                   className="inline-flex items-center gap-3 bg-ice text-primary-foreground px-6 py-3 text-xs uppercase tracking-coord hover:bg-glacier transition-colors"
                 >
-                  Read route dossier
+                  Explore atlas context
                 </Link>
                 <Link
                   to="/lighthouses"
