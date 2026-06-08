@@ -22,6 +22,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/places/beagle-channel", changefreq: "monthly", priority: "0.8" },
           { path: "/places/navarino-island", changefreq: "monthly", priority: "0.8" },
           { path: "/places/diego-ramirez-islands", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/strait-of-magellan", changefreq: "monthly", priority: "0.8" },
           { path: "/places/punta-arenas", changefreq: "monthly", priority: "0.8" },
           { path: "/places/antarctic-threshold", changefreq: "monthly", priority: "0.8" },
           { path: "/routes", changefreq: "weekly", priority: "0.9" },
