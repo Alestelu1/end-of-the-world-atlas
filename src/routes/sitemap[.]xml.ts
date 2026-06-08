@@ -21,6 +21,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/places/cape-horn", changefreq: "monthly", priority: "0.8" },
           { path: "/places/beagle-channel", changefreq: "monthly", priority: "0.8" },
           { path: "/places/navarino-island", changefreq: "monthly", priority: "0.8" },
+          { path: "/places/puerto-toro", changefreq: "monthly", priority: "0.8" },
           { path: "/places/diego-ramirez-islands", changefreq: "monthly", priority: "0.8" },
           { path: "/places/strait-of-magellan", changefreq: "monthly", priority: "0.8" },
           { path: "/places/ruta-vicuna-yendegaia", changefreq: "monthly", priority: "0.8" },

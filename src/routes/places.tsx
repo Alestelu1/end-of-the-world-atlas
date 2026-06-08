@@ -11,6 +11,7 @@ const placePageRoutes = {
   "cape-horn": "/places/cape-horn",
   "diego-ramirez-islands": "/places/diego-ramirez-islands",
   "navarino-island": "/places/navarino-island",
+  "puerto-toro": "/places/puerto-toro",
   "puerto-williams": "/places/puerto-williams",
   "punta-arenas": "/places/punta-arenas",
   "ruta-vicuna-yendegaia": "/places/ruta-vicuna-yendegaia",
