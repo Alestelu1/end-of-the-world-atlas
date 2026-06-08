@@ -17,6 +17,7 @@ import { Route as LighthousesRouteImport } from './routes/lighthouses'
 import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlacesStraitOfMagellanRouteImport } from './routes/places/strait-of-magellan'
 import { Route as PlacesPuntaArenasRouteImport } from './routes/places/punta-arenas'
 import { Route as PlacesPuertoWilliamsRouteImport } from './routes/places/puerto-williams'
 import { Route as PlacesNavarinoIslandRouteImport } from './routes/places/navarino-island'
@@ -64,6 +65,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PlacesStraitOfMagellanRoute = PlacesStraitOfMagellanRouteImport.update({
+  id: '/strait-of-magellan',
+  path: '/strait-of-magellan',
+  getParentRoute: () => PlacesRoute,
 } as any)
 const PlacesPuntaArenasRoute = PlacesPuntaArenasRouteImport.update({
   id: '/punta-arenas',
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
+  '/places/strait-of-magellan': typeof PlacesStraitOfMagellanRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
+  '/places/strait-of-magellan': typeof PlacesStraitOfMagellanRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -154,6 +162,7 @@ export interface FileRoutesById {
   '/places/navarino-island': typeof PlacesNavarinoIslandRoute
   '/places/puerto-williams': typeof PlacesPuertoWilliamsRoute
   '/places/punta-arenas': typeof PlacesPuntaArenasRoute
+  '/places/strait-of-magellan': typeof PlacesStraitOfMagellanRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -173,6 +182,7 @@ export interface FileRouteTypes {
     | '/places/navarino-island'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
+    | '/places/strait-of-magellan'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -190,6 +200,7 @@ export interface FileRouteTypes {
     | '/places/navarino-island'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
+    | '/places/strait-of-magellan'
   id:
     | '__root__'
     | '/'
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/places/navarino-island'
     | '/places/puerto-williams'
     | '/places/punta-arenas'
+    | '/places/strait-of-magellan'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -278,6 +290,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/places/strait-of-magellan': {
+      id: '/places/strait-of-magellan'
+      path: '/strait-of-magellan'
+      fullPath: '/places/strait-of-magellan'
+      preLoaderRoute: typeof PlacesStraitOfMagellanRouteImport
+      parentRoute: typeof PlacesRoute
+    }
     '/places/punta-arenas': {
       id: '/places/punta-arenas'
       path: '/punta-arenas'
@@ -338,6 +357,7 @@ interface PlacesRouteChildren {
   PlacesNavarinoIslandRoute: typeof PlacesNavarinoIslandRoute
   PlacesPuertoWilliamsRoute: typeof PlacesPuertoWilliamsRoute
   PlacesPuntaArenasRoute: typeof PlacesPuntaArenasRoute
+  PlacesStraitOfMagellanRoute: typeof PlacesStraitOfMagellanRoute
 }
 
 const PlacesRouteChildren: PlacesRouteChildren = {
@@ -348,6 +368,7 @@ const PlacesRouteChildren: PlacesRouteChildren = {
   PlacesNavarinoIslandRoute: PlacesNavarinoIslandRoute,
   PlacesPuertoWilliamsRoute: PlacesPuertoWilliamsRoute,
   PlacesPuntaArenasRoute: PlacesPuntaArenasRoute,
+  PlacesStraitOfMagellanRoute: PlacesStraitOfMagellanRoute,
 }
 
 const PlacesRouteWithChildren =

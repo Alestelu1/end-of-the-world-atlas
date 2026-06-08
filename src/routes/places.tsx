@@ -13,6 +13,7 @@ const placePageRoutes = {
   "navarino-island": "/places/navarino-island",
   "puerto-williams": "/places/puerto-williams",
   "punta-arenas": "/places/punta-arenas",
+  "strait-of-magellan": "/places/strait-of-magellan",
 } as const;
 
 export const Route = createFileRoute("/places")({
