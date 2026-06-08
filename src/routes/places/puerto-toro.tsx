@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -15,7 +15,7 @@ const relatedPlaces = [
   { name: "Puerto Williams", to: "/places/puerto-williams" },
   { name: "Navarino Island", to: "/places/navarino-island" },
   { name: "Cape Horn", to: "/places/cape-horn" },
-  { name: "Diego Ramírez Islands", to: "/places/diego-ramirez-islands" },
+  { name: "Diego RamÃ­rez Islands", to: "/places/diego-ramirez-islands" },
   { name: "Beagle Channel", to: "/places/beagle-channel" },
 ] as const;
 
@@ -45,13 +45,13 @@ const contexts = [
 export const Route = createFileRoute("/places/puerto-toro")({
   head: () => ({
     meta: [
-      { title: "Puerto Toro — End of the World Atlas" },
+      { title: "Puerto Toro â€” End of the World Atlas" },
       {
         name: "description",
         content:
           "A documentary and cartographic place dossier for Puerto Toro, a settlement on eastern Navarino Island connected to Beagle Channel and Cape Horn maritime geography.",
       },
-      { property: "og:title", content: "Puerto Toro — End of the World Atlas" },
+      { property: "og:title", content: "Puerto Toro â€” End of the World Atlas" },
       {
         property: "og:description",
         content:
@@ -59,13 +59,13 @@ export const Route = createFileRoute("/places/puerto-toro")({
       },
       {
         property: "og:url",
-        content: "https://end-of-the-world-atlas.example/places/puerto-toro",
+        content: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/puerto-toro",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://end-of-the-world-atlas.example/places/puerto-toro",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/puerto-toro",
       },
     ],
     scripts: [

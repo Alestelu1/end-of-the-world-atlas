@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -62,13 +62,14 @@ export const Route = createFileRoute("/places/antarctic-threshold")({
       },
       {
         property: "og:url",
-        content: "https://southern-uncharted-atlas.lovable.app/places/antarctic-threshold",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/antarctic-threshold",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://southern-uncharted-atlas.lovable.app/places/antarctic-threshold",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/antarctic-threshold",
       },
     ],
     scripts: [

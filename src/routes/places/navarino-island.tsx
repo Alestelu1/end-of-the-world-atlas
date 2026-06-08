@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -53,13 +53,14 @@ export const Route = createFileRoute("/places/navarino-island")({
       },
       {
         property: "og:url",
-        content: "https://southern-uncharted-atlas.lovable.app/places/navarino-island",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/navarino-island",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://southern-uncharted-atlas.lovable.app/places/navarino-island",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/navarino-island",
       },
     ],
     scripts: [

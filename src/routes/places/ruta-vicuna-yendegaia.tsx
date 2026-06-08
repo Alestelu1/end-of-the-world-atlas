@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -25,7 +25,7 @@ const contexts = [
   },
   {
     title: "Geographic Context",
-    body: "Ruta Vicuña–Yendegaia is read as an interior Tierra del Fuego corridor, where forested valleys, mountain edges, drainage lines and southern coastal approaches organize the movement between inland terrain and the Yendegaia sector.",
+    body: "Ruta VicuÃ±aâ€“Yendegaia is read as an interior Tierra del Fuego corridor, where forested valleys, mountain edges, drainage lines and southern coastal approaches organize the movement between inland terrain and the Yendegaia sector.",
   },
   {
     title: "Infrastructure Context",
@@ -37,37 +37,38 @@ const contexts = [
   },
   {
     title: "Southern Connectivity Context",
-    body: "In the broader southern map, Ruta Vicuña–Yendegaia extends the logic of connectivity beyond ports and channels. It links the interior of Tierra del Fuego to the geographic field that continues toward Navarino Island, Puerto Williams and the Beagle Channel.",
+    body: "In the broader southern map, Ruta VicuÃ±aâ€“Yendegaia extends the logic of connectivity beyond ports and channels. It links the interior of Tierra del Fuego to the geographic field that continues toward Navarino Island, Puerto Williams and the Beagle Channel.",
   },
 ];
 
 export const Route = createFileRoute("/places/ruta-vicuna-yendegaia")({
   head: () => ({
     meta: [
-      { title: "Ruta Vicuña–Yendegaia — End of the World Atlas" },
+      { title: "Ruta VicuÃ±aâ€“Yendegaia â€” End of the World Atlas" },
       {
         name: "description",
         content:
-          "A documentary and cartographic place dossier for Ruta Vicuña–Yendegaia, read as an infrastructure corridor through interior Tierra del Fuego toward Yendegaia.",
+          "A documentary and cartographic place dossier for Ruta VicuÃ±aâ€“Yendegaia, read as an infrastructure corridor through interior Tierra del Fuego toward Yendegaia.",
       },
       {
         property: "og:title",
-        content: "Ruta Vicuña–Yendegaia — End of the World Atlas",
+        content: "Ruta VicuÃ±aâ€“Yendegaia â€” End of the World Atlas",
       },
       {
         property: "og:description",
         content:
-          "A geographic reading of Ruta Vicuña–Yendegaia as road trace, terrain corridor, protected-landscape edge and southern connectivity infrastructure.",
+          "A geographic reading of Ruta VicuÃ±aâ€“Yendegaia as road trace, terrain corridor, protected-landscape edge and southern connectivity infrastructure.",
       },
       {
         property: "og:url",
-        content: "https://end-of-the-world-atlas.example/places/ruta-vicuna-yendegaia",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/ruta-vicuna-yendegaia",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://end-of-the-world-atlas.example/places/ruta-vicuna-yendegaia",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/ruta-vicuna-yendegaia",
       },
     ],
     scripts: [
@@ -139,9 +140,9 @@ function RutaVicunaYendegaiaPage() {
           <div className="bg-background p-8 lg:p-10">
             <div className="text-xs uppercase tracking-coord text-glacier">Documentary note</div>
             <p className="font-display text-3xl md:text-5xl text-ice mt-5 leading-[1.12] text-balance">
-              Ruta Vicuña–Yendegaia is presented here as infrastructure geography: road alignment,
-              valley terrain and southern access logic set against the protected margins of
-              Yendegaia.
+              Ruta VicuÃ±aâ€“Yendegaia is presented here as infrastructure geography: road
+              alignment, valley terrain and southern access logic set against the protected margins
+              of Yendegaia.
             </p>
           </div>
         </div>
@@ -162,7 +163,7 @@ function RutaVicunaYendegaiaPage() {
         <SectionHeading
           eyebrow="Related places"
           title="Places connected to this corridor"
-          description="These atlas places frame Ruta Vicuña–Yendegaia within the wider southern geography of ports, islands, straits and continental infrastructure."
+          description="These atlas places frame Ruta VicuÃ±aâ€“Yendegaia within the wider southern geography of ports, islands, straits and continental infrastructure."
         />
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">

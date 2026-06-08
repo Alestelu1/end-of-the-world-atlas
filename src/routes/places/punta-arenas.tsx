@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -58,13 +58,14 @@ export const Route = createFileRoute("/places/punta-arenas")({
       },
       {
         property: "og:url",
-        content: "https://southern-uncharted-atlas.lovable.app/places/punta-arenas",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/punta-arenas",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://southern-uncharted-atlas.lovable.app/places/punta-arenas",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/punta-arenas",
       },
     ],
     scripts: [

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -19,9 +19,17 @@ export const Route = createFileRoute("/travel")({
         content:
           "A non-commercial placeholder for future atlas notes on access geography, public corridors and field context.",
       },
-      { property: "og:url", content: "https://end-of-the-world-atlas.example/travel" },
+      {
+        property: "og:url",
+        content: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/travel",
+      },
     ],
-    links: [{ rel: "canonical", href: "https://end-of-the-world-atlas.example/travel" }],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/travel",
+      },
+    ],
   }),
   component: FieldAccessNotesPage,
 });

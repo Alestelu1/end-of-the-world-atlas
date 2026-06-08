@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -39,13 +39,13 @@ const contexts = [
 export const Route = createFileRoute("/places/strait-of-magellan")({
   head: () => ({
     meta: [
-      { title: "Strait of Magellan — End of the World Atlas" },
+      { title: "Strait of Magellan â€” End of the World Atlas" },
       {
         name: "description",
         content:
           "A documentary and cartographic place dossier for the Strait of Magellan, the maritime corridor separating Patagonia and Tierra del Fuego through narrows, reaches, capes and lights.",
       },
-      { property: "og:title", content: "Strait of Magellan — End of the World Atlas" },
+      { property: "og:title", content: "Strait of Magellan â€” End of the World Atlas" },
       {
         property: "og:description",
         content:
@@ -53,13 +53,14 @@ export const Route = createFileRoute("/places/strait-of-magellan")({
       },
       {
         property: "og:url",
-        content: "https://end-of-the-world-atlas.example/places/strait-of-magellan",
+        content:
+          "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/strait-of-magellan",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://end-of-the-world-atlas.example/places/strait-of-magellan",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/strait-of-magellan",
       },
     ],
     scripts: [

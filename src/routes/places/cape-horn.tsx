@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -14,7 +14,7 @@ if (!place) {
 const relatedPlaceNames = [
   "Puerto Williams",
   "Navarino Island",
-  "Diego Ramírez Islands",
+  "Diego RamÃ­rez Islands",
   "Antarctic Threshold",
 ];
 
@@ -54,13 +54,13 @@ export const Route = createFileRoute("/places/cape-horn")({
       },
       {
         property: "og:url",
-        content: "https://southern-uncharted-atlas.lovable.app/places/cape-horn",
+        content: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/cape-horn",
       },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://southern-uncharted-atlas.lovable.app/places/cape-horn",
+        href: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/places/cape-horn",
       },
     ],
     scripts: [

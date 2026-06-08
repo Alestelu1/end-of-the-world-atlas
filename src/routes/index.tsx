@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
@@ -41,7 +41,7 @@ const placePageRoutes = {
 } as const;
 
 const placeDisplayNames: Record<string, string> = {
-  "diego-ramirez-islands": "Diego Ramírez Islands",
+  "diego-ramirez-islands": "Diego RamÃ­rez Islands",
 };
 
 const placeImages: Record<string, string> = {
@@ -81,7 +81,7 @@ const atlasSignals = [
     icon: Snowflake,
     label: "Threshold",
     title: "Before Antarctic geography",
-    body: "Cape Horn, the Diego Ramírez Islands and the Drake Passage approaches form the atlas edge before polar waters dominate the chart.",
+    body: "Cape Horn, the Diego RamÃ­rez Islands and the Drake Passage approaches form the atlas edge before polar waters dominate the chart.",
   },
 ];
 
@@ -103,7 +103,10 @@ export const Route = createFileRoute("/")({
         content:
           "Places, southern routes, channels, lighthouses and Antarctic threshold geographies from the southern edge of Chile.",
       },
-      { property: "og:url", content: "https://end-of-the-world-atlas.example/" },
+      {
+        property: "og:url",
+        content: "https://end-of-the-world-atlas.endoftheworldatlas.workers.dev/",
+      },
     ],
   }),
   component: Home,
@@ -205,7 +208,7 @@ function Home() {
           <SectionHeading
             eyebrow="Places"
             title="Atlas places at the southern edge"
-            description="Seven place dossiers organize the current atlas: Puerto Williams, Cape Horn, the Beagle Channel, Navarino Island, the Diego Ramírez Islands, Punta Arenas and the Antarctic Threshold."
+            description="Seven place dossiers organize the current atlas: Puerto Williams, Cape Horn, the Beagle Channel, Navarino Island, the Diego RamÃ­rez Islands, Punta Arenas and the Antarctic Threshold."
           />
           <Link
             to="/places"
@@ -337,7 +340,7 @@ function Home() {
             </h2>
             <p className="mt-6 text-lg text-silver/80 leading-relaxed">
               The southern atlas does not end at a single cape. It thins through Navarino Island,
-              the Beagle Channel, Cape Horn, the Diego Ramírez Islands and the open approaches of
+              the Beagle Channel, Cape Horn, the Diego RamÃ­rez Islands and the open approaches of
               the Drake Passage.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
@@ -381,7 +384,7 @@ function Home() {
               },
               {
                 icon: Radio,
-                title: "Cape Horn and Diego Ramírez",
+                title: "Cape Horn and Diego RamÃ­rez",
                 body: "Cape, lighthouse reference, oceanic outliers and open southern water.",
               },
               {
